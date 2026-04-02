@@ -1,0 +1,168 @@
+<%- include('../partials/header') %>
+
+<main>
+    <section class="page-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Suporte e Planos</h1>
+            <p class="service-intro">Acesso rápido às ferramentas de suporte remoto e modelos de atendimento flexíveis.</p>
+        </div>
+    </section>
+
+    <!-- Support Tools -->
+    <section class="support-tools">
+        <div class="container support-grid">
+            <div class="glass-card reveal text-center">
+                <div class="tool-icon">📁</div>
+                <h3>AnyDesk</h3>
+                <p>Ferramenta recomendada para acesso remoto rápido e seguro.</p>
+                <a href="https://anydesk.com/pt/downloads" target="_blank" class="btn btn-outline">Download AnyDesk</a>
+            </div>
+            <div class="glass-card reveal text-center">
+                <div class="tool-icon">🟦</div>
+                <h3>TeamViewer</h3>
+                <p>Alternativa robusta para suporte especializado.</p>
+                <a href="https://www.teamviewer.com/pt-br/download/" target="_blank" class="btn btn-outline">Download TeamViewer</a>
+            </div>
+            <div class="glass-card reveal text-center">
+                <div class="tool-icon">🎫</div>
+                <h3>GLPI Helpdesk</h3>
+                <p>Nossa plataforma oficial para abertura e acompanhamento de chamados.</p>
+                <a href="https://www.glpi-project.org/en/helpdesk-software/" target="_blank" class="btn btn-primary">Acessar Portal GLPI</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Plans Comparison -->
+    <section class="plans">
+        <div class="container reveal">
+            <h2 class="section-title">Modelos de Atendimento</h2>
+            <div class="plans-table-container">
+                <table class="plans-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th class="accent-col">Atendimento Contratual (Mensal)</th>
+                            <th>Atendimento Pontual (Sob Demanda)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Manutenção Preventiva</td>
+                            <td class="check">✔ Mensal / Ativo</td>
+                            <td class="cross">✘ Somente Corretivo</td>
+                        </tr>
+                        <tr>
+                            <td>Monitoramento 24/7</td>
+                            <td class="check">✔ Incluído</td>
+                            <td class="cross">✘ Não Incluído</td>
+                        </tr>
+                        <tr>
+                            <td>Tempo de Resposta (SLA)</td>
+                            <td class="check">✔ Prioritário (Até 4h)</td>
+                            <td>Prioridade Conforme Fila</td>
+                        </tr>
+                        <tr>
+                            <td>Backup Gerenciado</td>
+                            <td class="check">✔ Incluído</td>
+                            <td class="cross">✘ Não Incluído</td>
+                        </tr>
+                        <tr>
+                            <td>Suporte Remoto Ilimitado</td>
+                            <td class="check">✔ Sim</td>
+                            <td>Cobrado por Hora</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="plans-footer text-center">
+                <p>Agende uma reunião para um diagnóstico gratuito e descubra qual modelo melhor se adapta ao seu negócio.</p>
+                <a href="https://wa.me/555139394490" class="btn btn-primary">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+.text-center { text-align: center; }
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.tool-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.support-tools .btn {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.plans-table-container {
+    overflow-x: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.plans-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.plans-table th, .plans-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.plans-table th {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.accent-col {
+    color: var(--text-main) !important;
+    background: rgba(139, 0, 0, 0.05) !important;
+    border-left: 1px solid var(--brand-red);
+    border-right: 1px solid var(--brand-red);
+}
+
+.plans-table th.accent-col {
+    color: var(--brand-red) !important;
+    background: rgba(139, 0, 0, 0.1) !important;
+}
+
+.plans-table td.accent-col {
+    background: rgba(139, 0, 0, 0.02) !important;
+}
+
+
+.check { color: #25d366; font-weight: 600; }
+.cross { color: #555; }
+
+.plans-footer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.plans-footer p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+    .support-grid { grid-template-columns: 1fr; }
+    .plans-table th, .plans-table td { padding: 1rem; font-size: 0.85rem; }
+}
+</style>
+
+<%- include('../partials/footer') %>

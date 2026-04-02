@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<main class="error-page">
+    <div class="container reveal text-center">
+        <h1 class="text-gradient">404</h1>
+        <h2>Página Não Encontrada</h2>
+        <p>O link que você seguiu pode estar quebrado ou a página foi removida.</p>
+        <a href="/" class="btn btn-primary">Voltar para Home</a>
+    </div>
+</main>
+
+<style>
+.error-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page h1 { font-size: 8rem; line-height: 1; }
+.error-page h2 { margin-bottom: 2rem; }
+.error-page p { margin-bottom: 3rem; color: var(--text-muted); }
+</style>
+
+<%- include('../partials/footer') %>

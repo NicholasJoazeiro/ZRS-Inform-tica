@@ -1,0 +1,176 @@
+<%- include('../partials/header') %>
+
+<main>
+    <section class="page-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Serviços e Inteligência em TI</h1>
+            <p class="service-intro">Projetos de infraestrutura robustos e consultoria estratégica para empresas que não podem parar.</p>
+        </div>
+    </section>
+
+    <section class="service-details">
+        <div class="container grid-dynamic">
+            <div class="glass-card service-card reveal" style="--delay: 0.1s">
+                <div class="card-icon glow-icon">⚡</div>
+                <h3 class="service-name">Infraestrutura e Redes</h3>
+                <p>Projetamos a rede ideal para suportar seu crescimento, indo além do suporte básico.</p>
+                <div class="service-tags">
+                    <span>Cabeamento Estruturado</span>
+                    <span>Servidores Windows/Linux</span>
+                    <span>Ubiquiti/Cisco</span>
+                </div>
+            </div>
+            
+            <div class="glass-card service-card reveal" style="--delay: 0.2s">
+                <div class="card-icon glow-icon">🛡️</div>
+                <h3 class="service-name">Segurança e Backup</h3>
+                <p>Proteja seu ativo mais valioso contra ransomware. Foco total em resiliência e continuidade.</p>
+                <div class="service-tags">
+                    <span>Backup em Nuvem</span>
+                    <span>Firewalls Avançados</span>
+                    <span class="tag-alert">Conformidade LGPD</span>
+                </div>
+            </div>
+            
+            <div class="glass-card service-card reveal" style="--delay: 0.3s">
+                <div class="card-icon glow-icon">☁️</div>
+                <h3 class="service-name">Cloud & Mobilidade</h3>
+                <p>Trabalhe de onde quiser com a mesma segurança do escritório. Migração inteligente para nuvem.</p>
+                <div class="service-tags">
+                    <span>Migração IaaS/SaaS</span>
+                    <span>VPNs Seguras</span>
+                    <span>Mobilidade</span>
+                </div>
+            </div>
+            
+            <div class="glass-card service-card reveal" style="--delay: 0.4s">
+                <div class="card-icon glow-icon">🎯</div>
+                <h3 class="service-name">Consultoria Executiva</h3>
+                <p>Parceria estratégica para tomadas de decisão tecnológicas que reduzem custos reais.</p>
+                <div class="service-tags">
+                    <span>Auditoria de TI</span>
+                    <span>Gestão de Ativos</span>
+                    <span>Plano Diretor (PDTI)</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Tech Stack / Partners -->
+    <section class="tech-partners">
+        <div class="container reveal">
+            <h2 class="section-title">Tecnologia de Classe Mundial</h2>
+            <p class="partners-desc">Trabalhamos com os melhores parceiros do mercado para garantir a estabilidade do seu negócio.</p>
+            <div class="partners-logos">
+                <div class="partner">Cisco</div>
+                <div class="partner">Ubiquiti</div>
+                <div class="partner">Microsoft</div>
+                <div class="partner">Dell</div>
+                <div class="partner">Linux</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+.page-hero {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    text-align: center;
+}
+
+.service-intro {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.grid-dynamic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation-delay: var(--delay);
+}
+
+.service-name {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.glow-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px var(--brand-red));
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.service-tags span {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.service-tags .tag-alert {
+    border-color: var(--brand-red);
+    color: var(--brand-red);
+    background: rgba(139, 0, 0, 0.05);
+}
+
+.tech-partners {
+
+    background: #050505;
+    text-align: center;
+}
+
+.partners-desc {
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+}
+
+.partners-logos {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    opacity: 0.5;
+}
+
+.partner {
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .page-hero h1 { font-size: 2.5rem; }
+}
+</style>
+
+<%- include('../partials/footer') %>

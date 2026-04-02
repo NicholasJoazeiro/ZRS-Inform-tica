@@ -1,0 +1,84 @@
+<%- include('../partials/header') %>
+
+<main>
+    <section class="page-hero">
+        <div class="container reveal">
+            <h1 class="text-gradient">Nosso Blog</h1>
+            <p class="service-intro">Dicas, tendências e melhores práticas em infraestrutura e segurança da informação.</p>
+        </div>
+    </section>
+
+    <!-- Blog List -->
+    <section class="blog-list-section">
+        <div class="container">
+            <div class="blog-grid">
+                <% if(typeof blogs !== 'undefined' && blogs.length > 0) { %>
+                    <% blogs.forEach(post => { %>
+                        <div class="glass-card blog-card reveal">
+                            <span class="blog-date"><%= post.date %></span>
+                            <h3 class="blog-title"><%= post.title %></h3>
+                            <p class="blog-excerpt"><%= post.excerpt %></p>
+                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="blog-link">Ler artigo →</a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p style="text-align: center; color: var(--text-muted); width: 100%;">Nenhum artigo disponível no momento.</p>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+.blog-list-section {
+    padding-top: 0;
+    padding-bottom: 6rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: var(--brand-red);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.blog-title {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.blog-link {
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    align-self: flex-start;
+}
+.blog-link:hover {
+    color: var(--brand-red);
+    padding-left: 5px;
+}
+</style>
+
+<%- include('../partials/footer') %>

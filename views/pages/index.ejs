@@ -1,0 +1,405 @@
+<%- include('../partials/header') %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="video-overlay"></div>
+        <div class="container hero-content reveal">
+            <h1 class="hero-title text-gradient">Segurança, Estabilidade e Inteligência em TI para o Crescimento do Seu Negócio</h1>
+            <p class="hero-subtitle">Transformamos tecnologia em vantagem competitiva com foco em continuidade e proteção de dados.</p>
+            <div class="hero-ctas">
+                <a href="#diagnostico" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
+                <a href="<%= basePath %>/servicos.html" class="btn btn-outline" style="color:white; border-color:white;">Nossos Serviços</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Authority Counter -->
+    <section class="counter-section">
+        <div class="container counter-grid">
+            <div class="counter-item">
+                <span class="counter-number" data-target="25">0</span>
+                <span class="counter-label">Anos de Expertise</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="100">0</span>
+                <span class="counter-label">+ Clientes Ativos</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="2000">0</span>
+                <span class="counter-label">+ Usuários Impactados</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="100">0</span>
+                <span class="counter-label">% Seguros (Ransomware)</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="24">0</span>
+                <span class="counter-label">Hrs de Monitoramento</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Value Triad -->
+    <section class="triad">
+        <div class="container">
+            <h2 class="section-title reveal">Tríade de Valor ZRS</h2>
+            <div class="triad-grid">
+                <div class="glass-card reveal">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Segurança de Redes</h3>
+                    <p>Ambientes blindados com firewalls avançados e monitoramento proativo de ameaças em tempo real.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <div class="card-icon">🧠</div>
+                    <h3>Consultoria Estratégica</h3>
+                    <p>Planejamento de infraestrutura escalável que antecipa as necessidades do seu crescimento.</p>
+                </div>
+                <div class="glass-card reveal">
+                    <div class="card-icon">🚀</div>
+                    <h3>Suporte Especializado</h3>
+                    <p>Atendimento humanizado e ágil focado na continuidade operacional do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section reveal">
+        <div class="container">
+            <div class="roi-content">
+                <div class="roi-text">
+                    <h2 class="text-gradient">O Impacto da TI Inteligente</h2>
+                    <p>Não somos um custo, somos um investimento. Empresas que otimizam sua infraestrutura de rede e governança de dados experimentam:</p>
+                    <ul class="roi-list">
+                        <li><strong>Até 30%</strong> de redução em custos operacionais por falhas.</li>
+                        <li><strong>Zero Tempo de Inatividade</strong> com planos de contingência robustos.</li>
+                        <li><strong>Conformidade Total</strong> com a LGPD, evitando multas severas.</li>
+                    </ul>
+                </div>
+                <div class="roi-box glass-card">
+                    <div class="roi-stat">30%</div>
+                    <div class="roi-stat-label">Otimização de Custos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="methodology reveal">
+        <div class="container">
+            <h2 class="section-title">Nossa Metodologia de Gestão</h2>
+            <div class="method-steps">
+                <div class="step glass-card">
+                    <div class="step-icon">🔍</div>
+                    <div class="step-num">01</div>
+                    <h4>Avaliação</h4>
+                    <p>Diagnóstico profundo da infraestrutura atual.</p>
+                </div>
+                <div class="step glass-card">
+                    <div class="step-icon">📐</div>
+                    <div class="step-num">02</div>
+                    <h4>Planejamento</h4>
+                    <p>Arquitetura da solução ideal sob medida.</p>
+                </div>
+                <div class="step glass-card">
+                    <div class="step-icon">⚙️</div>
+                    <div class="step-num">03</div>
+                    <h4>Implementação</h4>
+                    <p>Execução técnica com foco em zero downtime.</p>
+                </div>
+                <div class="step glass-card">
+                    <div class="step-icon">📈</div>
+                    <div class="step-num">04</div>
+                    <h4>Gestão Contínua</h4>
+                    <p>Monitoramento 24/7 e melhoria constante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Blog Preview Section -->
+    <section class="blog-preview-section reveal">
+        <div class="container">
+            <h2 class="section-title text-gradient">Novidades e Artigos</h2>
+            <div class="blog-grid">
+                <% if(typeof blogs !== 'undefined' && blogs.length > 0) { %>
+                    <% blogs.forEach(post => { %>
+                        <div class="glass-card blog-card">
+                            <span class="blog-date"><%= post.date %></span>
+                            <h3 class="blog-title"><%= post.title %></h3>
+                            <p class="blog-excerpt"><%= post.excerpt %></p>
+                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="blog-link">Ler artigo →</a>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p style="text-align: center; color: var(--text-muted); width: 100%;">Nenhum artigo disponível no momento.</p>
+                <% } %><!-- Note: backend will pass slice of blogs to index render -->
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="<%= basePath %>/blog.html" class="btn btn-outline">Ver Todos os Artigos</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section id="diagnostico" class="final-cta">
+        <div class="container reveal">
+            <div class="glass-card cta-box">
+                <h2>Pronto para profissionalizar sua TI?</h2>
+                <p>Garanta a estabilidade que sua empresa merece com um parceiro local e experiente.</p>
+                <a href="https://wa.me/555139394490" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<style>
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: 4rem;
+
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: #ffffff; /* Better contrast in light mode via absolute white on dark hero */
+}
+.hero-title.text-gradient {
+    /* override text-gradient for hero to always be bright */
+    background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #dddddd; /* override text-muted to ensure visibility */
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+
+.hero-ctas {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Counters */
+.counter-section {
+    background: var(--footer-bg);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.counter-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: center;
+    overflow-x: auto; /* Allow scrolling on smaller screens */
+    padding-bottom: 1rem; /* Space for scrollbar */
+}
+
+.counter-item {
+    flex: 1 1 0;
+    min-width: 150px;
+}
+
+
+
+.counter-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--brand-red);
+}
+
+.counter-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Triad */
+.triad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ROI */
+.roi-content {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.roi-list {
+    margin-top: 2rem;
+}
+
+.roi-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.roi-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--brand-red);
+}
+
+.roi-box {
+    text-align: center;
+    padding: 4rem;
+    min-width: 300px;
+    border: 2px solid var(--brand-red);
+}
+
+.roi-stat {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--brand-red);
+    line-height: 1;
+}
+
+/* Methodology */
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.step {
+    padding: 2.5rem;
+    position: relative;
+    border-radius: 16px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.4));
+}
+
+.step-num {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--brand-red);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.final-cta {
+    text-align: center;
+}
+
+.cta-box {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-box p {
+    margin-bottom: 2.5rem;
+    color: var(--text-muted);
+}
+
+/* Blog Preview */
+.blog-preview-section {
+    padding-top: 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: var(--brand-red);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.blog-title {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.blog-link {
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+.blog-link:hover {
+    color: var(--brand-red);
+    padding-left: 5px;
+}
+
+@media (max-width: 991px) {
+
+    .hero-title { font-size: 3rem; }
+    .counter-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .triad-grid, .method-steps { grid-template-columns: 1fr; }
+    .roi-content { flex-direction: column; text-align: center; gap: 3rem; }
+}
+</style>
+
+<%- include('../partials/footer') %>

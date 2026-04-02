@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+
+<main class="page-post">
+    <article class="container single-post reveal">
+        <header class="post-header">
+            <a href="<%= basePath %>/blog.html" class="back-link">← Voltar para o Blog</a>
+            <span class="post-date"><%= post.date %></span>
+            <h1 class="post-title"><%= post.title %></h1>
+        </header>
+
+        <div class="post-content glass-card">
+            <%- post.content %> <!-- Using <%- %> because content contains HTML -->
+        </div>
+
+        <div class="post-cta text-center" style="margin-top: 4rem;">
+            <h3>Precisa de ajuda com a TI da sua empresa?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Entre em contato com nossos especialistas e solicite um diagnóstico gratuito.</p>
+            <a href="https://wa.me/555139394490" target="_blank" class="btn btn-primary">Falar com Consultor</a>
+        </div>
+    </article>
+</main>
+
+<style>
+.page-post {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+}
+
+.single-post {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-header {
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--brand-red);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.post-date {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.post-title {
+    font-size: 2.8rem;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content strong {
+    color: var(--brand-red);
+    font-weight: 600;
+}
+
+.post-content em {
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .post-title { font-size: 2rem; }
+    .page-post { padding-top: 8rem; }
+}
+</style>
+
+<%- include('../partials/footer') %>

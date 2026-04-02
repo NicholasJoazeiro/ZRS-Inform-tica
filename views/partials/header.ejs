@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= basePath %>/assets/css/style.css">
+    <meta name="description" content="Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos. 25 anos de expertise em infraestrutura, redes e consultoria.">
+    <link rel="icon" type="image/x-icon" href="<%= basePath %>/favicon.png">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container nav-container">
+        <a href="<%= basePath %>/index.html" class="logo">
+            <img src="<%= basePath %>/assets/images/logozrs.png" alt="ZRS Informática Logo" class="logo-img">
+        </a>
+        
+        <nav class="nav-links">
+            <a href="<%= basePath %>/index.html" class="nav-item">Home</a>
+            <a href="<%= basePath %>/servicos.html" class="nav-item">Serviços</a>
+            <a href="<%= basePath %>/sobre.html" class="nav-item">Quem Somos</a>
+            <a href="<%= basePath %>/suporte.html" class="nav-item">Suporte</a>
+            <a href="<%= basePath %>/blog.html" class="nav-item">Blog</a>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="https://wa.me/555139394490" target="_blank" class="btn btn-primary btn-sm">Contato</a>
+        </div>
+
+        
+        <div class="mobile-toggle" id="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<style>
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    backdrop-filter: blur(20px);
+    background: var(--bg-glass);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+}
+
+[data-theme="dark"] .logo-img {
+    background: transparent;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-icon, .btn-theme {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+}
+.btn-icon:hover, .btn-theme:hover {
+    background: var(--border-color);
+    color: var(--brand-red);
+}
+
+.nav-item {
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-item:hover { color: var(--text-main); }
+
+.mobile-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-main);
+}
+
+@media (max-width: 991px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: flex; }
+}
+</style>
