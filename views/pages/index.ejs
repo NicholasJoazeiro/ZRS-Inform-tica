@@ -394,11 +394,18 @@
 }
 
 @media (max-width: 991px) {
-
-    .hero-title { font-size: 3rem; }
-    .counter-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-ctas { flex-direction: column; width: 100%; }
+    .hero-ctas .btn { text-align: center; width: 100%; }
+    .counter-grid { 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 2rem; 
+        overflow-x: hidden;
+    }
     .triad-grid, .method-steps { grid-template-columns: 1fr; }
     .roi-content { flex-direction: column; text-align: center; gap: 3rem; }
+    .roi-box { min-width: 100%; padding: 3rem 1rem; }
 }
 </style>
 
