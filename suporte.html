@@ -150,12 +150,6 @@
                 <p>Alternativa robusta para suporte especializado.</p>
                 <a href="https://www.teamviewer.com/pt-br/download/" target="_blank" class="btn btn-outline">Download TeamViewer</a>
             </div>
-            <div class="glass-card reveal text-center">
-                <div class="tool-icon">🎫</div>
-                <h3>GLPI Helpdesk</h3>
-                <p>Nossa plataforma oficial para abertura e acompanhamento de chamados.</p>
-                <a href="https://www.glpi-project.org/en/helpdesk-software/" target="_blank" class="btn btn-primary">Acessar Portal GLPI</a>
-            </div>
         </div>
     </section>
 
@@ -214,9 +208,15 @@
 .text-center { text-align: center; }
 
 .support-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.support-grid > div {
+    max-width: 320px;
+    flex: 1;
 }
 
 .tool-icon {
