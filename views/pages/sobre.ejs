@@ -22,8 +22,8 @@
                             <span class="event">Fundação da expertise em redes e suporte técnico regional.</span>
                         </div>
                         <div class="timeline-item">
-                            <span class="year">2024</span>
-                            <span class="event">Formalização como ZRSATT Serviços em Informática Ltda, focada em agilidade e governança estratégica.</span>
+                            <span class="year">2026</span>
+                            <span class="event">Momento atual: Atendemos mais de 100 clientes corporativos e impactamos mais de 2000 usuários diariamente com nossa governança de TI.</span>
                         </div>
                     </div>
                 </div>
@@ -37,12 +37,22 @@
     </section>
 
     <section class="location-section reveal">
-        <div class="container text-center">
-            <h3>Presença Local</h3>
-            <p>Com sede estratégica em Novo Hamburgo, atendemos com agilidade as cidades de Ivoti, Dois Irmãos e Estância Velha.</p>
-            <p>Nosso laboratório técnico avançado permite diagnósticos precisos que evitam soluções genéricas e garantem rapidez operacional.</p>
-            <div class="location-map">
-                <p>📍 Rua Santo Angelo, 506 | Bairro Guarani, Novo Hamburgo - RS</p>
+        <div class="container">
+            <div class="glass-card map-box text-center">
+                <h2 class="section-title">Presença Local</h2>
+                <p>Com sede estratégica em Novo Hamburgo, atendemos com agilidade as cidades de Ivoti, Dois Irmãos e Estância Velha.</p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.757134375971!2d-51.1278119!3d-29.6834169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519424c88b77a0b%3A0x897914e9f73f5a11!2sR.%20Santo%20%C3%82ngelo%2C%20506%20-%20Guarani%2C%20Novo%20Hamburgo%20-%20RS%2C%2093520-210!5e0!3m2!1spt-BR!2sbr!4v1712078000000!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0; border-radius: 12px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="address-footer">📍 Rua Santo Angelo, 506 | Bairro Guarani, Novo Hamburgo - RS</p>
             </div>
         </div>
     </section>
@@ -53,14 +63,17 @@
             <h2 class="section-title">Nossos Diferenciais</h2>
             <div class="values-grid">
                 <div class="value-item">
+                    <div class="value-icon">🚀</div>
                     <h4>SLA & Agilidade</h4>
                     <p>Atendimento personalizado que entende a urgência do seu negócio.</p>
                 </div>
                 <div class="value-item">
+                    <div class="value-icon">🤝</div>
                     <h4>Foco no Cliente</h4>
                     <p>"Sua necessidade é nossa especialidade" — transição do foco em hardware para a continuidade do negócio.</p>
                 </div>
                 <div class="value-item">
+                    <div class="value-icon">💎</div>
                     <h4>Transparência</h4>
                     <p>Processos estruturados e relatórios claros de cada intervenção.</p>
                 </div>
@@ -146,22 +159,49 @@
 
 .location-section {
     padding-top: 2rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-.location-map {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border-radius: 8px;
+.team-values {
+    padding-top: 1rem;
+}
+
+.map-box {
+    padding: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-container {
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid var(--border-color);
-    display: inline-block;
+}
+
+.address-footer {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 1rem;
 }
 
 .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    margin-top: 4rem;
+    margin-top: 0;
+}
+
+.value-item {
+    text-align: center;
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .value-item h4 {
