@@ -121,7 +121,24 @@
 }
 
 @media (max-width: 991px) {
-    .nav-links { display: none; }
+    .nav-links { 
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 2rem 0;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        gap: 1.5rem;
+    }
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
     .mobile-toggle { display: flex; }
 }
 </style>
