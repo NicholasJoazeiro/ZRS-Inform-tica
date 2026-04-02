@@ -172,9 +172,7 @@
                     </div>
                 </div>
                 <div class="hq-image-box reveal">
-                    <div class="hq-placeholder">
-                        <div class="placeholder-text">📸 Imagem Vertical da Sede da ZRS</div>
-                    </div>
+                    <img src="./assets/images/sedezrs.png" alt="Sede ZRS Informática" class="hq-image">
                 </div>
             </div>
         </div>
@@ -297,18 +295,20 @@
     align-items: stretch;
 }
 
-.hq-placeholder {
-    background: var(--bg-card);
-    border: 2px dashed var(--brand-red);
-    border-radius: 16px;
+.hq-image {
     width: 100%;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-muted);
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transition: var(--transition-smooth);
+    object-fit: cover;
+}
+
+.hq-image:hover {
+    transform: scale(1.02);
+    border-color: var(--brand-red);
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.2);
 }
 
 .location-section {
