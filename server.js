@@ -6,6 +6,9 @@ const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Path helper for templates
+app.locals.basePath = '';
+
 // Security and Performance Middleware
 app.use(helmet({
     contentSecurityPolicy: {
