@@ -75,6 +75,20 @@ const animateCounters = () => {
     });
 };
 
+// Header Scroll Effect
+const header = document.querySelector('.main-header');
+const handleScroll = () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+};
+
+window.addEventListener('scroll', handleScroll);
+// Run once on load
+handleScroll();
+
 // Intersection Observer for Reveal Animations
 const observerOptions = {
     threshold: 0.1
