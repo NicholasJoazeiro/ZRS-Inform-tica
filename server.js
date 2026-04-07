@@ -33,6 +33,46 @@ app.use('/assets', express.static(path.join(__dirname, 'public'))); // Alias for
 // Mock Data for Blog
 const mockBlogs = [
     {
+        id: 11,
+        slug: 'a-importancia-do-firewall-de-nova-geracao',
+        title: 'A Importância do Firewall de Nova Geração (NGFW)',
+        date: '07 Abr 2026',
+        excerpt: 'Saiba como bloquear ameaças avançadas antes mesmo delas atingirem seus servidores.',
+        content: '<p>O perímetro de rede mudou e os firewalls tradicionais já não são suficientes. Os <strong>Firewalls de Nova Geração (NGFW)</strong> inspecionam o tráfego de maneira mais profunda, identificando aplicativos, prevenindo intrusões (IPS) e filtrando malwares em tempo real. Implementar um NGFW é o primeiro passo vital para garantir que sua rede seja imune à maioria das ferramentas automatizadas de invasão diária.</p>'
+    },
+    {
+        id: 12,
+        slug: 'por-que-o-wifi-6-e-o-novo-padrao',
+        title: 'Por que o Wi-Fi 6 é o novo padrão para escritórios',
+        date: '07 Abr 2026',
+        excerpt: 'Mais velocidade, menos latência e suporte a uma densidade enorme de dispositivos.',
+        content: '<p>O protocolo <strong>Wi-Fi 6 (802.11ax)</strong> não traz apenas mais velocidade, mas uma melhoria dramática na capacidade de gerenciar múltiplos dispositivos ao mesmo tempo sem queda de estabilidade. Empresas com grande concentração de colaboradores em notebooks e smartphones se beneficiam diretamente da tecnologia OFDMA, eliminando completamente os travamentos de Zoom e lentidão no acesso a sistemas locais.</p>'
+    },
+    {
+        id: 13,
+        slug: 'lgpd-na-pratica-como-adequar',
+        title: 'LGPD na prática: Como adequar o seu TI',
+        date: '07 Abr 2026',
+        excerpt: 'Criptografia, controle de acesso e políticas restritas que sua empresa precisa ter.',
+        content: '<p>A conformidade com a <strong>LGPD</strong> exige mais do que apenas documentos jurídicos. Sem controles técnicos não há proteção. Isso envolve implementar a criptografia de discos, sistemas de gestão de identidade (MFA) e rastreamento rigoroso de logs (DLP - Data Loss Prevention) para garantir que apenas pessoas autorizadas tenham acesso a dados sensíveis, mitigando possíveis vazamentos e multas severas.</p>'
+    },
+    {
+        id: 14,
+        slug: 'nuvem-vs-servidor-local-qual-escolher',
+        title: 'Computação em Nuvem vs Servidor Local',
+        date: '07 Abr 2026',
+        excerpt: 'Prós e contras das abordagens em nuvem e on-premise para diferentes setores.',
+        content: '<p>A dúvida entre investir em um <strong>servidor local potente</strong> ou migrar toda a operação para a <strong>Nuvem (Cloud)</strong> depende do seu perfil. Indústrias com automação em tempo real frequentemente ainda necessitam de processamento de baixa latência <em>on-premise</em>, enquanto empresas de serviços ganham muito mais resiliência escalando de forma dinâmica na nuvem, pagando apenas pelo que gastam.</p>'
+    },
+    {
+        id: 15,
+        slug: 'treinamento-anti-phishing',
+        title: 'O elo mais fraco da segurança é o humano',
+        date: '07 Abr 2026',
+        excerpt: 'Por que treinar seus colaboradores é tão importante quanto ter um bom antivírus.',
+        content: '<p>Mais de 80% dos ataques que resultam em ransomware começam com <strong>Phishing</strong> — e-mails falsos abertos por um funcionário legítimo. Ao educar a sua equipe com as melhores práticas para reconhecer tentativas de engenharia social, você elimina a maior porta de entrada de ameaças virtuais e complementa a segurança corporativa.</p>'
+    },
+    {
         id: 1,
         slug: 'como-proteger-sua-empresa-contra-ransomware',
         title: 'Como proteger sua empresa contra Ransomware',
@@ -118,7 +158,7 @@ const mockBlogs = [
 app.get('/', (req, res) => {
     res.render('pages/index', { 
         title: 'ZRS Informática | Inteligência em TI',
-        blogs: mockBlogs.slice(0, 3) 
+        blogs: mockBlogs.slice(0, 4) 
     });
 });
 
