@@ -85,6 +85,20 @@
     color: var(--brand-red);
     padding-left: 5px;
 }
+
+@media (max-width: 991px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .blog-card { padding: 1.2rem; }
+    .blog-title { font-size: 1rem; margin-bottom: 0.5rem; }
+    .blog-excerpt { font-size: 0.8rem; margin-bottom: 1rem; }
+    .blog-date { font-size: 0.75rem; margin-bottom: 0.5rem; }
+    .blog-link { font-size: 0.85rem; }
+}
+
 </style>
 
 <%- include('../partials/footer') %>

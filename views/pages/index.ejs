@@ -403,7 +403,9 @@
         gap: 2rem; 
         overflow-x: hidden;
     }
-    .triad-grid, .method-steps { grid-template-columns: 1fr; }
+    .triad-grid { grid-template-columns: 1fr; }
+    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .roi-content { flex-direction: column; text-align: center; gap: 3rem; }
     .roi-box { min-width: 100%; padding: 3rem 1rem; }
 }
@@ -413,7 +415,18 @@
     .hero-subtitle { font-size: 1.05rem; }
     .counter-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .counter-number { font-size: 2.5rem; }
-    .step { padding: 1.5rem; }
+    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .step { padding: 1rem; }
+    .step-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .step-num { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .step h4 { font-size: 0.95rem; }
+    .step p { font-size: 0.8rem; }
+    
+    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .blog-card { padding: 1rem; }
+    .blog-title { font-size: 1rem; margin-bottom: 0.5rem; }
+    .blog-excerpt { font-size: 0.85rem; margin-bottom: 1rem; }
+    
     .roi-stat { font-size: 3.5rem; }
     .roi-box { padding: 2rem 1rem; }
 }
