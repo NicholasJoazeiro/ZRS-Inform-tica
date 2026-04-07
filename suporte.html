@@ -132,6 +132,11 @@
     background-color: var(--text-main);
 }
 
+@keyframes slideDownMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 991px) {
     .nav-links { 
         display: none; 
@@ -139,19 +144,37 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--bg-card);
+        background: var(--bg-glass);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         border-bottom: 1px solid var(--border-color);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
         flex-direction: column;
-        padding: 2rem 0;
+        padding: 0;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        gap: 1.5rem;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        gap: 0;
+    }
+    [data-theme="dark"] .nav-links {
+        background: rgba(14, 14, 14, 0.95);
     }
     .nav-links.active {
         display: flex;
-        animation: fadeIn 0.3s ease;
+        animation: slideDownMenu 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .mobile-toggle { display: flex; }
+    .nav-item {
+        padding: 1.25rem 0;
+        width: 100%;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(139, 0, 0, 0.05);
+        display: block;
+    }
+    [data-theme="dark"] .nav-item { border-bottom-color: rgba(255, 255, 255, 0.05); }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+    .mobile-toggle { display: flex; z-index: 1001; }
 }
 
 @media (max-width: 480px) {
@@ -174,16 +197,16 @@
     <section class="support-tools">
         <div class="container support-grid">
             <div class="glass-card reveal text-center">
-                <div class="tool-icon">📁</div>
+                <div class="tool-icon">📱</div>
                 <h3>AnyDesk</h3>
                 <p>Ferramenta recomendada para acesso remoto rápido e seguro.</p>
-                <a href="https://anydesk.com/pt/downloads" target="_blank" class="btn btn-outline">Download AnyDesk</a>
+                <a href="https://anydesk.com/pt/downloads" target="_blank" class="btn download-btn">Baixar AnyDesk ⬇️</a>
             </div>
             <div class="glass-card reveal text-center">
-                <div class="tool-icon">🟦</div>
+                <div class="tool-icon">🌐</div>
                 <h3>TeamViewer</h3>
                 <p>Alternativa profissional para suporte técnico especializado.</p>
-                <a href="https://www.teamviewer.com/pt-br/download/" target="_blank" class="btn btn-outline">Download TeamViewer</a>
+                <a href="https://www.teamviewer.com/pt-br/download/" target="_blank" class="btn download-btn">Baixar TeamViewer ⬇️</a>
             </div>
         </div>
     </section>
@@ -331,9 +354,31 @@
     margin-bottom: 2rem;
 }
 
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.download-btn:hover {
+    background: var(--brand-red);
+    color: white;
+    border-color: var(--brand-red);
+}
+
 @media (max-width: 991px) {
-    .support-grid { grid-template-columns: 1fr; }
+    .support-grid { flex-direction: column; align-items: center; }
+    .support-grid > div { width: 100%; max-width: 500px; }
     .plans-table th, .plans-table td { padding: 1rem; font-size: 0.85rem; }
+}
+
+@media (max-width: 600px) {
+    .plans-table-container { margin: 2rem -1.25rem; border-radius: 0; border-left: none; border-right: none;}
+    .plans-table th, .plans-table td { padding: 0.6rem 0.4rem; font-size: 0.7rem; line-height: 1.2; word-wrap: break-word; hyphens: auto; }
 }
 </style>
 
