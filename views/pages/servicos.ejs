@@ -218,16 +218,28 @@
 @media (max-width: 768px) {
     .page-hero { padding-top: 8rem; }
     .page-hero h1 { font-size: 2.5rem; }
+    .grid-dynamic { gap: 1.5rem; }
 }
 
 @media (max-width: 480px) {
-    .page-hero h1 { font-size: 2rem; }
+    .page-hero h1 { font-size: 2rem; line-height: 1.2; }
     .service-intro { font-size: 1.05rem; }
-    .grid-dynamic { grid-template-columns: 1fr; gap: 2rem; }
-    .partner { font-size: 1.5rem; }
-    .tech-partners .section-title { font-size: 2rem; }
-    .tech-partners { padding: 4rem 0; }
-    .glow-icon { font-size: 2.5rem; }
+    
+    /* Force 2 cards per line instead of 1 */
+    .grid-dynamic { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    
+    .service-card { padding: 1rem; text-align: left; }
+    .glow-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .service-name { font-size: 1rem; line-height: 1.2; margin-bottom: 0.5rem; min-height: 28px; }
+    .service-card p { font-size: 0.75rem; margin-bottom: 1rem; line-height: 1.3; }
+    
+    .service-tags { gap: 0.3rem; margin-top: auto; }
+    .service-tags span { padding: 0.15rem 0.4rem; font-size: 0.65rem; border-radius: 6px; }
+
+    .partner { font-size: 1.3rem; }
+    .tech-partners .section-title { font-size: 2rem; margin-bottom: 2rem; }
+    .tech-partners { padding: 3rem 0; }
+    .partners-logos { gap: 1.5rem; }
 }
 </style>
 
