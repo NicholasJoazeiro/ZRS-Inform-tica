@@ -228,6 +228,22 @@
     .narrative-grid { grid-template-columns: 1fr; gap: 3rem; }
     .values-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 768px) {
+    .page-hero { padding-top: 8rem; }
+    .section-title.text-left { text-align: center; font-size: 2rem; }
+    .narrative-text { text-align: center; }
+    .timeline-box { text-align: left; }
+    .map-box { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .page-hero h1 { font-size: 2rem; }
+    .service-intro { font-size: 1.05rem; }
+    .hq-image { border-radius: 8px; }
+    .timeline-item::before { transform: scale(0.8); left: calc(-2rem - 5px); }
+    .value-icon { font-size: 2.5rem; }
+}
 </style>
 
 <%- include('../partials/footer') %>

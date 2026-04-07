@@ -211,9 +211,23 @@
     transform: translateY(-5px);
 }
 
+@media (max-width: 991px) {
+    .partners-logos { gap: 2rem; }
+}
+
 @media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
+    .page-hero { padding-top: 8rem; }
     .page-hero h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+    .page-hero h1 { font-size: 2rem; }
+    .service-intro { font-size: 1.05rem; }
+    .grid-dynamic { grid-template-columns: 1fr; gap: 2rem; }
+    .partner { font-size: 1.5rem; }
+    .tech-partners .section-title { font-size: 2rem; }
+    .tech-partners { padding: 4rem 0; }
+    .glow-icon { font-size: 2.5rem; }
 }
 </style>
 

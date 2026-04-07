@@ -196,8 +196,21 @@ section {
 }
 
 /* Responsive */
+@media (max-width: 991px) {
+    .section-title { font-size: 2.2rem; }
+    section { padding: 5rem 0; }
+}
+
 @media (max-width: 768px) {
     .section-title { font-size: 2rem; }
     .container { padding: 0 1.5rem; }
     section { padding: 4rem 0; }
+    .glass-card { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
+    .container { padding: 0 1.25rem; }
+    section { padding: 3rem 0; }
+    .btn { padding: 0.8rem 1.2rem; width: 100%; text-align: center; display: block; }
 }
