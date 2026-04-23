@@ -158,7 +158,7 @@ const mockBlogs = [
 app.get('/', (req, res) => {
     res.render('pages/index', { 
         title: 'ZRS Informática | Inteligência em TI',
-        blogs: mockBlogs.slice(0, 4) 
+        blogs: mockBlogs.slice(0, 3) 
     });
 });
 

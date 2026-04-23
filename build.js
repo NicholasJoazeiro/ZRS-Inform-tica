@@ -138,7 +138,7 @@ const mockBlogs = [
 ];
 
 const pages = [
-    { name: 'index', title: 'ZRS Informática | Inteligência em TI', template: 'pages/index.ejs', data: { blogs: mockBlogs.slice(0, 4) } },
+    { name: 'index', title: 'ZRS Informática | Inteligência em TI', template: 'pages/index.ejs', data: { blogs: mockBlogs.slice(0, 3) } },
     { name: 'servicos', title: 'Serviços | Estratégia e Segurança', template: 'pages/servicos.ejs', data: {} },
     { name: 'sobre', title: 'Quem Somos | 25 anos de Expertise', template: 'pages/sobre.ejs', data: {} },
     { name: 'suporte', title: 'Suporte e Downloads', template: 'pages/suporte.ejs', data: {} },
