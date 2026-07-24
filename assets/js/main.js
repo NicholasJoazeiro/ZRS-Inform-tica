@@ -1,104 +1,123 @@
-// Mobile Menu Toggle
+// Mobile Navigation Toggle
 const mobileToggle = document.getElementById('mobile-toggle');
-const navLinks = document.querySelector('.nav-links');
+const mobileMenu = document.getElementById('mobile-menu');
 
-if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-    });
-}
-
-// WhatsApp Toggle
-const waToggle = document.getElementById('wa-toggle');
-const waMenu = document.getElementById('whatsapp-menu');
-
-if (waToggle) {
-    waToggle.addEventListener('click', (e) => {
+if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        waMenu.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('hidden');
     });
-}
-
-// Close WhatsApp menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (waMenu && !waMenu.contains(e.target) && e.target !== waToggle) {
-        waMenu.classList.remove('active');
-    }
-});
-
-// Theme Toggle Logic
-const themeToggle = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme') || 'light';
-
-// Set initial theme
-if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    if(themeToggle) themeToggle.innerText = '🌙';
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        if (theme === 'dark') {
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            themeToggle.innerText = '☀️';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            themeToggle.innerText = '🌙';
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+            mobileToggle.classList.remove('active');
         }
     });
 }
 
+// WhatsApp Floating Menu Toggle
+const waToggle = document.getElementById('wa-toggle');
+const waMenu = document.getElementById('whatsapp-menu');
 
-// Counter Animation
+if (waToggle && waMenu) {
+    waToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        waMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!waMenu.contains(e.target) && !waToggle.contains(e.target)) {
+            waMenu.classList.add('hidden');
+        }
+    });
+}
+
+// Theme Toggle (Default Futuristic Dark Mode)
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme') || 'dark';
+
+const applyTheme = (theme) => {
+    if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (themeToggle) themeToggle.innerText = '☀️';
+    } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (themeToggle) themeToggle.innerText = '🌙';
+    }
+};
+
+// Set initial theme state
+applyTheme(currentTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        const newTheme = isDark ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
+}
+
+// Counter Animation for Statistics
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter-number');
-    const speed = 200;
-
+    
     counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // 2 seconds animation
+        const startTime = performance.now();
+        const startValue = 0;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
+        const updateCount = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function (easeOutQuad)
+            const easeProgress = 1 - (1 - progress) * (1 - progress);
+            const currentCount = Math.floor(easeProgress * (target - startValue) + startValue);
+
+            counter.innerText = currentCount.toLocaleString('pt-BR');
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
             } else {
-                counter.innerText = target;
+                counter.innerText = target.toLocaleString('pt-BR');
             }
         };
-        updateCount();
+
+        requestAnimationFrame(updateCount);
     });
 };
 
-// Header Scroll Effect
+// Header Scroll Shadow Effect
 const header = document.querySelector('.main-header');
 const handleScroll = () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
+    if (window.scrollY > 40) {
+        header?.classList.add('scrolled');
     } else {
-        header.classList.remove('scrolled');
+        header?.classList.remove('scrolled');
     }
 };
 
 window.addEventListener('scroll', handleScroll);
-// Run once on load
 handleScroll();
 
-// Intersection Observer for Reveal Animations
+// Intersection Observer for Reveal Animations & Counter Trigger
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.15
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            // Check if it's the counter section
+            
+            // Trigger counter animation when stats section is visible
             if (entry.target.classList.contains('counter-section')) {
                 animateCounters();
             }

@@ -1,903 +1,649 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZRS Informática | Inteligência em TI</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                bg: '#030712',
+                card: 'rgba(15, 23, 42, 0.65)',
+                cyan: '#00f0ff',
+                cyanGlow: '#06b6d4',
+                blue: '#3b82f6',
+                red: '#e11d48',
+                slate: '#0f172a'
+              }
+            },
+            fontFamily: {
+              heading: ['Outfit', 'sans-serif'],
+              body: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta name="description" content="Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos. 25 anos de expertise em infraestrutura, redes e consultoria.">
     <link rel="icon" type="image/png" href="./assets/images/icone.png">
 </head>
-<body>
+<body class="bg-[#030712] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
 
-<header class="main-header">
-    <div class="container nav-container">
-        <a href="./index.html" class="logo">
-            <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="logo-img">
+<header class="main-header fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+    <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="./index.html" class="flex items-center gap-3 group">
+            <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(0,240,255,0.25)]">
         </a>
         
-        <nav class="nav-links">
-            <a href="./index.html" class="nav-item">Home</a>
-            <a href="./servicos.html" class="nav-item">Serviços</a>
-            <a href="./sobre.html" class="nav-item">Quem Somos</a>
-            <a href="./suporte.html" class="nav-item">Suporte</a>
-            <a href="./blog.html" class="nav-item">Blog</a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="./index.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Home
+            </a>
+            <a href="./servicos.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Serviços
+            </a>
+            <a href="./sobre.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Quem Somos
+            </a>
+            <a href="./suporte.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Suporte
+            </a>
+            <a href="./blog.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Blog
+            </a>
         </nav>
         
-        <div class="header-actions">
-            <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary btn-sm">Contato</a>
+        <!-- Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-xs py-2.5 px-5 rounded-lg flex items-center gap-2">
+                <span>Falar com Especialista</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
         </div>
 
-        
-        <div class="mobile-toggle" id="mobile-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <!-- Mobile Toggle Button -->
+        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg bg-slate-900/80 border border-white/10 text-slate-200 focus:outline-none">
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-slate-200 rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-cyan-500/20 px-6 py-6 transition-all duration-300">
+        <nav class="flex flex-col gap-4">
+            <a href="./index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Home
+            </a>
+            <a href="./servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Serviços
+            </a>
+            <a href="./sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Quem Somos
+            </a>
+            <a href="./suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Suporte
+            </a>
+            <a href="./blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Blog
+            </a>
+            <div class="pt-4 border-t border-white/10 mt-2">
+                <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary w-full text-center justify-center py-3">
+                    Falar com Especialista
+                </a>
+            </div>
+        </nav>
     </div>
 </header>
 
 <style>
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 1.25rem 0;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: var(--bg-glass);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
 .main-header.scrolled {
-    padding: 0.75rem 0;
-    background: var(--bg-card);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-color: rgba(3, 7, 18, 0.95);
+    box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
 }
 
-[data-theme="dark"] .main-header.scrolled {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.mobile-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.mobile-toggle.active .bar:nth-child(2) {
+    opacity: 0;
 }
-
-.logo-img {
-    height: 55px;
-    width: auto;
-}
-
-[data-theme="dark"] .logo-img {
-    background: transparent;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
-}
-
-
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.btn-icon, .btn-theme {
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: var(--transition-smooth);
-}
-.btn-icon:hover, .btn-theme:hover {
-    background: var(--border-color);
-    color: var(--brand-red);
-}
-
-.nav-item {
-    font-family: var(--font-heading);
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-item:hover { color: var(--text-main); }
-
-.mobile-toggle {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.mobile-toggle span {
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-main);
-}
-
-@keyframes slideDownMenu {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 991px) {
-    .main-header {
-        background: var(--bg-card);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-    .nav-links { 
-        display: none; 
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-card);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        border-bottom: 1px solid var(--border-color);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        flex-direction: column;
-        padding: 0;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        gap: 0;
-    }
-    [data-theme="dark"] .main-header,
-    [data-theme="dark"] .nav-links {
-        background: #141414; /* solid dark card bg */
-    }
-    .nav-links.active {
-        display: flex;
-        animation: slideDownMenu 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .nav-item {
-        padding: 1.25rem 0;
-        width: 100%;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(139, 0, 0, 0.05);
-        display: block;
-    }
-    [data-theme="dark"] .nav-item { border-bottom-color: rgba(255, 255, 255, 0.05); }
-    
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-    .mobile-toggle { display: flex; z-index: 1001; }
-}
-
-@media (max-width: 480px) {
-    .logo-img { height: 40px; }
-    .btn.btn-sm { padding: 0.6rem 1rem; font-size: 0.8rem; }
-    .header-actions { gap: 0.5rem; }
+.mobile-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 </style>
 
 
-<main>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="video-overlay"></div>
-        <div class="container hero-content reveal">
-            <h1 class="hero-title text-gradient">Segurança, Estabilidade e Inteligência em TI para o Crescimento do Seu Negócio</h1>
-            <p class="hero-subtitle">Transformamos tecnologia em vantagem competitiva com foco em continuidade e proteção de dados.</p>
-            <div class="hero-ctas">
-                <a href="#diagnostico" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
-                <a href="./servicos.html" class="btn btn-outline" style="color:white; border-color:white;">Nossos Serviços</a>
+<main class="relative overflow-hidden bg-[#030712]">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 tech-grid-bg overflow-hidden">
+        <!-- Ambient Glow Orbs -->
+        <div class="glow-orb glow-orb-cyan top-1/4 -left-24 opacity-60"></div>
+        <div class="glow-orb glow-orb-blue bottom-10 -right-24 opacity-60"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+                
+                <!-- Authority Badge -->
+                <div class="inline-flex items-center">
+                    <span class="tech-badge">
+                        <span class="tech-badge-dot"></span>
+                        <span>25 Anos de Tradição e Inovação no Vale do Sinos</span>
+                    </span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-slate-100 tracking-tight leading-[1.15]">
+                    Segurança, Estabilidade e <br class="hidden sm:inline">
+                    <span class="text-gradient-cyan">Inteligência em TI</span> para o Seu Negócio
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+                    Transformamos infraestrutura de tecnologia em vantagem competitiva proativa com foco em continuidade operacional e blindagem de dados.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#diagnostico" class="btn btn-primary w-full sm:w-auto text-base py-4 px-8">
+                        <span>Solicitar Diagnóstico Gratuito</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                    <a href="./servicos.html" class="btn btn-outline w-full sm:w-auto text-base py-4 px-8">
+                        <span>Conhecer Nossos Serviços</span>
+                    </a>
+                </div>
+
+                <!-- Feature Pills -->
+                <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🛡️</span>
+                        <span class="text-xs font-medium text-slate-300">Proteção Anti-Ransomware</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">⚡</span>
+                        <span class="text-xs font-medium text-slate-300">Atendimento SLA Rápido</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🔒</span>
+                        <span class="text-xs font-medium text-slate-300">Conformidade LGPD</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🌐</span>
+                        <span class="text-xs font-medium text-slate-300">Monitoramento 24/7</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-
-    <!-- Authority Counter -->
-    <section class="counter-section">
-        <div class="container counter-grid">
-            <div class="counter-item">
-                <span class="counter-number" data-target="25">0</span>
-                <span class="counter-label">Anos de Expertise</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="100">0</span>
-                <span class="counter-label">+ Clientes Ativos</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="2000">0</span>
-                <span class="counter-label">+ Usuários Impactados</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="100">0</span>
-                <span class="counter-label">% Seguros (Ransomware)</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="24">0</span>
-                <span class="counter-label">Hrs de Monitoramento</span>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Value Triad -->
-    <section class="triad">
-        <div class="container">
-            <h2 class="section-title reveal">Tríade de Valor ZRS</h2>
-            <div class="triad-grid">
-                <div class="glass-card reveal">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Segurança de Redes</h3>
-                    <p>Ambientes blindados com firewalls avançados e monitoramento proativo de ameaças em tempo real.</p>
+    <!-- AUTHORITY COUNTER SECTION -->
+    <section class="counter-section py-16 bg-slate-950/80 border-y border-white/10 relative">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+                
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="25">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Anos de Expertise</span>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-icon">🧠</div>
-                    <h3>Consultoria Estratégica</h3>
-                    <p>Planejamento de infraestrutura escalável que antecipa as necessidades do seu crescimento.</p>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Clientes Ativos</span>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-icon">🚀</div>
-                    <h3>Suporte Especializado</h3>
-                    <p>Atendimento humanizado e ágil focado na continuidade operacional do seu negócio.</p>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="2000">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Usuários Protegidos</span>
                 </div>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">%</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Segurança em Nuvem</span>
+                </div>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all col-span-2 lg:col-span-1">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="24">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">/7</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Monitoramento NOC</span>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ROI Section -->
-    <section class="roi-section reveal">
-        <div class="container">
-            <div class="roi-content">
-                <div class="roi-text">
-                    <h2 class="text-gradient">O Impacto da TI Inteligente</h2>
-                    <p>Não somos um custo, somos um investimento. Empresas que otimizam sua infraestrutura de rede e governança de dados experimentam:</p>
-                    <ul class="roi-list">
-                        <li><strong>Até 30%</strong> de redução em custos operacionais por falhas.</li>
-                        <li><strong>Zero Tempo de Inatividade</strong> com planos de contingência robustos.</li>
-                        <li><strong>Conformidade Total</strong> com a LGPD, evitando multas severas.</li>
+    <!-- VALUE TRIAD SECTION -->
+    <section class="py-24 relative">
+        <div class="glow-orb glow-orb-cyan top-1/3 left-10 opacity-30"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="section-title text-gradient-cyan">Tríade de Valor ZRS</h2>
+                <p class="section-subtitle">
+                    Fundamentamos nossa governança em três pilares estratégicos para garantir alta disponibilidade e proteção contínua.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+                        🛡️
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">
+                        Segurança de Redes
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ambientes corporativos blindados com Firewalls de Nova Geração (NGFW), inspeção profunda de pacotes e mitigação proativa de ameaças em tempo real.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        🧠
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-blue-300 transition-colors">
+                        Consultoria Estratégica
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Planejamento de arquitetura de TI escalável que transforma a tecnologia em vetor de crescimento, eliminando custos com gargalos técnicos.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(225,29,72,0.15)]">
+                        🚀
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-rose-300 transition-colors">
+                        Suporte Especializado
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Atendimento com SLA ágil e corpo técnico dedicado, focado em resolver ocorrências sem causar paradas na sua operação diária.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI & IMPACT SECTION -->
+    <section class="py-20 bg-slate-950/60 border-y border-white/5 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 reveal">
+                    <span class="tech-badge">Retorno Sobre Investimento</span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-100">
+                        O Impacto Real de uma <span class="text-gradient-cyan">TI Gerenciada</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Não somos um centro de custos — somos parceiros na aceleração do seu negócio. Empresas que migram para nosso modelo preventivo registram:
+                    </p>
+                    
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Até 30% de redução de custos operacionais:</strong>
+                                <span class="text-slate-400 text-sm block">Eliminação de paradas desnecessárias e retrabalho de equipe.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Zero Inatividade Crítica:</strong>
+                                <span class="text-slate-400 text-sm block">Planos de contingência e backups imutáveis redundantes.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Conformidade Total com LGPD:</strong>
+                                <span class="text-slate-400 text-sm block">Blindagem jurídica e técnica contra vazamento de dados confidenciais.</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="roi-box glass-card">
-                    <div class="roi-stat">30%</div>
-                    <div class="roi-stat-label">Otimização de Custos</div>
+
+                <div class="lg:col-span-5 reveal">
+                    <div class="glass-card bg-slate-900/80 border-cyan-500/30 p-8 text-center space-y-4 relative overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)]">
+                        <div class="glow-orb glow-orb-cyan -top-20 -right-20 opacity-40"></div>
+                        <span class="text-xs uppercase font-heading font-semibold text-cyan-400 tracking-wider">Média de Economia</span>
+                        <div class="text-6xl sm:text-7xl font-heading font-black text-gradient-cyan leading-none">
+                            30%
+                        </div>
+                        <div class="text-sm font-medium text-slate-300">
+                            Otimização no Custo Total de Propriedade (TCO) de Tecnologia
+                        </div>
+                        <div class="pt-4">
+                            <a href="#diagnostico" class="btn btn-primary w-full text-sm py-3">
+                                Calcular para Minha Empresa
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Methodology -->
-    <section class="methodology reveal">
-        <div class="container">
-            <h2 class="section-title">Nossa Metodologia de Gestão</h2>
-            <div class="method-steps">
-                <div class="step glass-card">
-                    <div class="step-icon">🔍</div>
-                    <div class="step-num">01</div>
-                    <h4>Avaliação</h4>
-                    <p>Diagnóstico profundo da infraestrutura atual.</p>
-                </div>
-                <div class="step glass-card">
-                    <div class="step-icon">📐</div>
-                    <div class="step-num">02</div>
-                    <h4>Planejamento</h4>
-                    <p>Arquitetura da solução ideal sob medida.</p>
-                </div>
-                <div class="step glass-card">
-                    <div class="step-icon">⚙️</div>
-                    <div class="step-num">03</div>
-                    <h4>Implementação</h4>
-                    <p>Execução técnica com foco em zero downtime.</p>
-                </div>
-                <div class="step glass-card">
-                    <div class="step-icon">📈</div>
-                    <div class="step-num">04</div>
-                    <h4>Gestão Contínua</h4>
-                    <p>Monitoramento 24/7 e melhoria constante.</p>
-                </div>
+    <!-- METHODOLOGY SECTION -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="section-title text-gradient-cyan">Nossa Metodologia de Gestão</h2>
+                <p class="section-subtitle">
+                    Um fluxo contínuo de 4 etapas desenhado para garantir previsibilidade, segurança e máxima performance.
+                </p>
             </div>
-        </div>
-    </section>
 
-
-    <!-- Blog Preview Section -->
-    <section class="blog-preview-section reveal">
-        <div class="container">
-            <h2 class="section-title text-gradient">Novidades e Artigos</h2>
-            <div class="blog-grid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                    
-                        <div class="glass-card blog-card">
-                            <span class="blog-date">07 Abr 2026</span>
-                            <h3 class="blog-title">A Importância do Firewall de Nova Geração (NGFW)</h3>
-                            <p class="blog-excerpt">Saiba como bloquear ameaças avançadas antes mesmo delas atingirem seus servidores.</p>
-                            <a href="./blog/a-importancia-do-firewall-de-nova-geracao.html" class="blog-link">Ler artigo →</a>
-                        </div>
-                    
-                        <div class="glass-card blog-card">
-                            <span class="blog-date">07 Abr 2026</span>
-                            <h3 class="blog-title">Por que o Wi-Fi 6 é o novo padrão para escritórios</h3>
-                            <p class="blog-excerpt">Mais velocidade, menos latência e suporte a uma densidade enorme de dispositivos.</p>
-                            <a href="./blog/por-que-o-wifi-6-e-o-novo-padrao.html" class="blog-link">Ler artigo →</a>
-                        </div>
-                    
-                        <div class="glass-card blog-card">
-                            <span class="blog-date">07 Abr 2026</span>
-                            <h3 class="blog-title">LGPD na prática: Como adequar o seu TI</h3>
-                            <p class="blog-excerpt">Criptografia, controle de acesso e políticas restritas que sua empresa precisa ter.</p>
-                            <a href="./blog/lgpd-na-pratica-como-adequar.html" class="blog-link">Ler artigo →</a>
-                        </div>
-                    
-                <!-- Note: backend will pass slice of blogs to index render -->
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="./blog.html" class="btn btn-outline">Ver Todos os Artigos</a>
+                <!-- Step 01 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">🔍</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">01</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Avaliação</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Diagnóstico completo da infraestrutura, mapeando riscos de segurança e gargalos de velocidade.
+                    </p>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">📐</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">02</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Planejamento</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Desenho da arquitetura de solução sob medida com priorização de dados críticos.
+                    </p>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">⚙️</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">03</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Implementação</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Execução técnica especializada com foco em zero paralisação operacional (zero downtime).
+                    </p>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">📈</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">04</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Gestão Contínua</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Monitoramento 24/7, relatórios periódicos e atualizações contínuas de segurança.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
-
-    <!-- CTA Section -->
-    <section id="diagnostico" class="final-cta">
-        <div class="container reveal">
-            <div class="glass-card cta-box">
-                <h2>Pronto para profissionalizar sua TI?</h2>
-                <p>Garanta a estabilidade que sua empresa merece com um parceiro local e experiente.</p>
-                <a href="https://wa.me/5551994374526" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
-            </div>
-        </div>
-    </section>
-</main>
-
-<style>
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), 
-                url('./assets/images/hero-bg-v3.png') center/cover;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 900px;
-}
-
-.hero-title {
-    font-size: 4rem;
-
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    color: #ffffff; /* Better contrast in light mode via absolute white on dark hero */
-}
-.hero-title.text-gradient {
-    /* override text-gradient for hero to always be bright */
-    background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #dddddd; /* override text-muted to ensure visibility */
-    margin-bottom: 3rem;
-    max-width: 600px;
-}
-
-
-.hero-ctas {
-    display: flex;
-    gap: 1.5rem;
-}
-
-/* Counters */
-.counter-section {
-    background: var(--footer-bg);
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.counter-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 1rem;
-    text-align: center;
-    overflow-x: auto; /* Allow scrolling on smaller screens */
-    padding-bottom: 1rem; /* Space for scrollbar */
-}
-
-.counter-item {
-    flex: 1 1 0;
-    min-width: 150px;
-}
-
-
-
-.counter-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    color: var(--brand-red);
-}
-
-.counter-label {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Triad */
-.triad-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-/* ROI */
-.roi-content {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-}
-
-.roi-list {
-    margin-top: 2rem;
-}
-
-.roi-list li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.roi-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--brand-red);
-}
-
-.roi-box {
-    text-align: center;
-    padding: 4rem;
-    min-width: 300px;
-    border: 2px solid var(--brand-red);
-}
-
-.roi-stat {
-    font-size: 5rem;
-    font-weight: 800;
-    color: var(--brand-red);
-    line-height: 1;
-}
-
-/* Methodology */
-.method-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    position: relative;
-    padding-top: 2rem;
-}
-
-.step {
-    padding: 2.5rem;
-    position: relative;
-    border-radius: 16px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.step-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.4));
-}
-
-.step-num {
-    font-size: 2.5rem;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    color: var(--brand-red);
-    opacity: 0.8;
-    margin-bottom: 1rem;
-}
-
-.final-cta {
-    text-align: center;
-}
-
-.cta-box {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-box h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.cta-box p {
-    margin-bottom: 2.5rem;
-    color: var(--text-muted);
-}
-
-/* Blog Preview */
-.blog-preview-section {
-    padding-top: 0;
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.blog-card {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-}
-
-.blog-date {
-    font-size: 0.85rem;
-    color: var(--brand-red);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.blog-title {
-    font-size: 1.3rem;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.blog-excerpt {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-}
-
-.blog-link {
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.9rem;
-    align-self: flex-start;
-}
-.blog-link:hover {
-    color: var(--brand-red);
-    padding-left: 5px;
-}
-
-@media (max-width: 991px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-ctas { flex-direction: column; width: 100%; }
-    .hero-ctas .btn { text-align: center; width: 100%; }
-    .counter-grid { 
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 2rem; 
-        overflow-x: hidden;
-    }
-    .triad-grid { grid-template-columns: 1fr; }
-    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .roi-content { flex-direction: column; text-align: center; gap: 3rem; }
-    .roi-box { min-width: 100%; padding: 3rem 1rem; }
-}
-
-@media (max-width: 480px) {
-    .hero-title { font-size: 2rem; line-height: 1.2; }
-    .hero-subtitle { font-size: 1.05rem; }
-    .counter-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .counter-number { font-size: 2.5rem; }
-    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-    .step { padding: 1rem; }
-    .step-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .step-num { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .step h4 { font-size: 0.95rem; }
-    .step p { font-size: 0.8rem; }
-    
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .blog-card { padding: 1rem; }
-    .blog-title { font-size: 1rem; margin-bottom: 0.5rem; }
-    .blog-excerpt { font-size: 0.85rem; margin-bottom: 1rem; }
-    
-    .roi-stat { font-size: 3.5rem; }
-    .roi-box { padding: 2rem 1rem; }
-}
-</style>
-
-<footer class="main-footer">
-    <div class="container footer-grid">
-        <div class="footer-info">
-            <a href="./index.html" class="logo-footer">
-                <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="logo-img">
-            </a>
-            <p class="footer-desc">Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos há mais de 25 anos.</p>
-            <div class="footer-social">
-                <a href="https://instagram.com/zrs_informatica" target="_blank" class="social-icon" aria-label="Instagram">
-                    <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
-                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                    </svg>
+    <!-- BLOG PREVIEW SECTION -->
+    <section class="py-20 bg-slate-950/40 border-t border-white/5">
+        <div class="container mx-auto px-4 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <span class="tech-badge mb-3">Conhecimento Técnico</span>
+                    <h2 class="section-title text-left text-gradient-cyan mb-0">Artigos e Novidades</h2>
+                </div>
+                <a href="./blog.html" class="btn btn-outline text-xs py-2.5 px-5 mt-4 md:mt-0">
+                    Ver Todos os Artigos →
                 </a>
             </div>
-        </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                    
+                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                            <div>
+                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                    A Importância do Firewall de Nova Geração (NGFW)
+                                </h3>
+                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                    Saiba como bloquear ameaças avançadas antes mesmo delas atingirem seus servidores.
+                                </p>
+                            </div>
+                            <a href="./blog/a-importancia-do-firewall-de-nova-geracao.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                                <span>Ler artigo completo</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    
+                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                            <div>
+                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                    Por que o Wi-Fi 6 é o novo padrão para escritórios
+                                </h3>
+                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                    Mais velocidade, menos latência e suporte a uma densidade enorme de dispositivos.
+                                </p>
+                            </div>
+                            <a href="./blog/por-que-o-wifi-6-e-o-novo-padrao.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                                <span>Ler artigo completo</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    
+                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                            <div>
+                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                    LGPD na prática: Como adequar o seu TI
+                                </h3>
+                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                    Criptografia, controle de acesso e políticas restritas que sua empresa precisa ter.
+                                </p>
+                            </div>
+                            <a href="./blog/lgpd-na-pratica-como-adequar.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                                <span>Ler artigo completo</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    
+                
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section id="diagnostico" class="py-24 relative overflow-hidden">
+        <div class="glow-orb glow-orb-cyan top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
         
-        <div class="footer-links">
-            <h4 class="footer-heading">Navegação</h4>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./servicos.html">Serviços</a></li>
-                <li><a href="./sobre.html">Quem Somos</a></li>
-                <li><a href="./suporte.html">Suporte</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-            </ul>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="glass-card bg-slate-900/90 border-cyan-500/40 p-10 sm:p-16 rounded-3xl text-center max-w-4xl mx-auto space-y-6 shadow-[0_0_60px_rgba(6,182,212,0.2)] reveal">
+                <span class="tech-badge">Diagnóstico Gratuito</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-100 leading-tight">
+                    Pronto para Elevar o Nível da Sua TI?
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                    Garanta a estabilidade e proteção que seu negócio necessita. Agende uma consultoria sem compromisso com nossos especialistas.
+                </p>
+                <div class="pt-4 flex justify-center">
+                    <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-base py-4 px-10">
+                        <span>Falar com Consultor Agora</span>
+                        <span class="text-xl">💬</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="main-footer bg-[#030712] border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
+    <!-- Ambient Glow behind Footer -->
+    <div class="glow-orb glow-orb-blue bottom-0 left-1/2 -translate-x-1/2 opacity-30"></div>
+
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <!-- Col 1: Brand Info -->
+            <div class="space-y-4">
+                <a href="./index.html" class="inline-block">
+                    <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-12 w-auto filter drop-shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+                </a>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                    Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos há mais de 25 anos.
+                </p>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="https://instagram.com/zrs_informatica" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 448 512">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Navigation Links -->
+            <div>
+                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Navegação</h4>
+                <ul class="space-y-2.5 text-sm text-slate-400">
+                    <li><a href="./index.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Home</a></li>
+                    <li><a href="./servicos.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Serviços</a></li>
+                    <li><a href="./sobre.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Quem Somos</a></li>
+                    <li><a href="./suporte.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Suporte & Planos</a></li>
+                    <li><a href="./blog.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Blog Técnico</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact Info -->
+            <div>
+                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Contato & Atendimento</h4>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li class="flex items-center gap-2">
+                        <span class="text-cyan-400">📞</span>
+                        <a href="https://wa.me/5551994374526" target="_blank" class="hover:text-slate-200 transition-colors">(51) 99437-4526</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="text-cyan-400">✉️</span>
+                        <a href="mailto:contato@zrsinformatica.com.br" class="hover:text-slate-200 transition-colors">contato@zrsinformatica.com.br</a>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-cyan-400 mt-0.5">📍</span>
+                        <span>Rua Santo Ângelo, 506<br>Bairro Guarani, Novo Hamburgo - RS</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Trust Badge / Fast Support -->
+            <div class="glass-card bg-slate-900/40 p-5 rounded-2xl border border-white/5 space-y-3">
+                <div class="tech-badge text-[10px] py-1 px-3">
+                    <span class="tech-badge-dot"></span>
+                    <span>Monitoramento NOC 24/7</span>
+                </div>
+                <h5 class="font-heading font-semibold text-slate-200 text-sm">Suporte Ágil e Estratégico</h5>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Sua empresa protegida com resposta técnica priorizada e zero paralisações.
+                </p>
+            </div>
         </div>
 
-        
-        <div class="footer-contact">
-            <h4 class="footer-heading">Contato</h4>
-            <p>(51) 99437-4526</p>
-            <p>contato@zrsinformatica.com.br</p>
-            <p>Rua Santo Angelo, 506<br>Bairro Guarani, Novo Hamburgo - RS</p>
+        <!-- Footer Bottom -->
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <p>© Zrs Informática - Todos os direitos reservados.</p>
+            <p class="font-mono text-slate-600">CNPJ: 53.559.069/0001-16</p>
         </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <div class="container bottom-content">
-            <p>Zrs Informática - All rights reserved</p>
-            <p>CNPJ 53.559.069/0001-16</p>
-        </div>
-
     </div>
 </footer>
 
-<style>
-.main-footer {
-    padding-top: 6rem;
-    background: var(--footer-bg);
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-}
-
-.logo-footer {
-    display: inline-block;
-    margin-bottom: 1.5rem;
-}
-
-.logo-footer .logo-img {
-    height: 60px; /* Increased from 40px */
-    width: auto;
-}
-
-[data-theme="dark"] .logo-footer .logo-img {
-    background: transparent;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
-}
-
-.footer-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 400px;
-}
-
-.footer-social {
-    margin-top: 1.5rem;
-}
-
-.social-icon {
-    color: var(--text-muted);
-    transition: var(--transition-smooth);
-    display: inline-block;
-}
-
-.social-icon:hover {
-    color: var(--brand-red);
-    transform: translateY(-2px);
-}
-
-.footer-heading {
-    color: var(--text-main);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
-.footer-links ul li {
-    margin-bottom: 1rem;
-}
-
-.footer-links ul li a {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.footer-links ul li a:hover {
-    color: var(--brand-red);
-    padding-left: 5px;
-}
-
-.footer-contact p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.footer-bottom {
-    padding: 2rem 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.bottom-content {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-@media (max-width: 768px) {
-    .main-footer { padding-top: 4rem; }
-    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 3rem; text-align: center; }
-    .footer-desc { margin: 0 auto; }
-    .bottom-content { flex-direction: column; gap: 1rem; text-align: center; }
-}
-</style>
-
-<div class="floating-controls">
-    <button id="theme-toggle" class="btn-theme-float" aria-label="Alternar Tema">☀️</button>
+<!-- Floating Controls (WhatsApp + Theme) -->
+<div class="floating-controls fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" aria-label="Alternar Tema" class="w-12 h-12 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl shadow-lg hover:scale-110 hover:border-cyan-400 transition-all duration-300 backdrop-blur-xl">
+        🌙
+    </button>
     
-    <div class="whatsapp-float">
-        <div class="whatsapp-menu" id="whatsapp-menu">
-            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" class="wa-option" target="_blank">
-                <span class="wa-label">Comercial & Diagnóstico</span>
-                <span class="wa-icon">💼</span>
+    <!-- WhatsApp Floating Container -->
+    <div class="whatsapp-float relative">
+        <!-- Interactive WhatsApp Menu Popup -->
+        <div id="whatsapp-menu" class="hidden absolute bottom-16 right-0 w-72 bg-slate-950/95 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl p-4 shadow-2xl space-y-2 text-slate-200 z-50">
+            <div class="text-xs font-heading uppercase tracking-wider text-cyan-400 font-semibold px-2 pb-1 border-b border-white/10">
+                Como podemos ajudar?
+            </div>
+            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+                <div class="flex flex-col">
+                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Comercial & Diagnóstico</span>
+                    <span class="text-[11px] text-slate-400">Avaliação gratuita de TI</span>
+                </div>
+                <span class="text-lg">💼</span>
             </a>
-            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" class="wa-option" target="_blank">
-                <span class="wa-label">Suporte Técnico</span>
-                <span class="wa-icon">🛠️</span>
+            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+                <div class="flex flex-col">
+                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Suporte Técnico</span>
+                    <span class="text-[11px] text-slate-400">Atendimento a chamados</span>
+                </div>
+                <span class="text-lg">🛠️</span>
             </a>
         </div>
-        <button class="whatsapp-btn" id="wa-toggle">
-            <svg viewBox="0 0 448 512" width="24" height="24" fill="white">
+
+        <!-- WhatsApp Button -->
+        <button id="wa-toggle" aria-label="WhatsApp ZRS Informática" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110">
+            <!-- Pulsing Aura -->
+            <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30 pointer-events-none"></span>
+            
+            <svg class="w-7 h-7 fill-current relative z-10" viewBox="0 0 448 512">
                 <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
             </svg>
         </button>
     </div>
 </div>
-
-<style>
-.floating-controls {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 2000;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-}
-
-.btn-theme-float {
-    background: var(--bg-card);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: var(--transition-smooth);
-    color: var(--text-main);
-}
-.btn-theme-float:hover {
-    transform: scale(1.1);
-    border-color: var(--brand-red);
-}
-
-.whatsapp-float {
-    position: relative;
-}
-
-.whatsapp-btn {
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-menu {
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-    width: 240px;
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1rem;
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-}
-
-.whatsapp-menu.active {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-.wa-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    font-size: 0.85rem;
-    font-family: var(--font-heading);
-    font-weight: 500;
-}
-
-.wa-option:hover {
-    background: var(--brand-red);
-}
-
-.wa-icon { font-size: 1.2rem; }
-
-@media (max-width: 480px) {
-    .floating-controls { bottom: 1rem; right: 1rem; }
-    .btn-theme-float, .whatsapp-btn { width: 45px; height: 45px; }
-    .whatsapp-menu { right: 0; bottom: 65px; width: 220px; }
-}
-</style>
 
 <script src="./assets/js/main.js"></script>
 </body>
