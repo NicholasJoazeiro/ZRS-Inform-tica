@@ -1,82 +1,57 @@
 <%- include('../partials/header') %>
 
-<main class="page-post">
-    <article class="container single-post reveal">
-        <header class="post-header">
-            <a href="<%= basePath %>/blog.html" class="back-link">← Voltar para o Blog</a>
-            <span class="post-date"><%= post.date %></span>
-            <h1 class="post-title"><%= post.title %></h1>
+<main class="relative overflow-hidden bg-[#030712] pt-28 pb-24 min-h-screen">
+    <!-- Glow Background -->
+    <div class="glow-orb glow-orb-cyan top-20 left-1/2 -translate-x-1/2 opacity-30"></div>
+
+    <article class="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10 reveal">
+        
+        <!-- Header -->
+        <header class="mb-8 space-y-4">
+            <a href="<%= basePath %>/blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                <span>← Voltar para o Blog</span>
+            </a>
+            <div class="text-xs font-semibold text-slate-400"><%= post.date %></div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-100 leading-tight">
+                <%= post.title %>
+            </h1>
         </header>
 
-        <div class="post-content glass-card">
-            <%- post.content %> <!-- Using <%- %> because content contains HTML -->
+        <!-- Content Glass Card -->
+        <div class="glass-card bg-slate-900/80 p-6 sm:p-10 rounded-3xl border border-white/10 text-slate-200 text-base leading-relaxed space-y-6 shadow-2xl">
+            <%- post.content %>
         </div>
 
-        <div class="post-cta text-center" style="margin-top: 4rem;">
-            <h3>Precisa de ajuda com a TI da sua empresa?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">Entre em contato com nossos especialistas e solicite um diagnóstico gratuito.</p>
-            <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary">Falar com Consultor</a>
+        <!-- Post CTA -->
+        <div class="mt-12 text-center glass-card bg-slate-900/60 p-8 rounded-3xl border border-cyan-500/30 space-y-4">
+            <h3 class="text-2xl font-heading font-bold text-slate-100">
+                Precisa de ajuda com a TI da sua empresa?
+            </h3>
+            <p class="text-slate-300 text-sm max-w-xl mx-auto">
+                Entre em contato com nossos especialistas e solicite um diagnóstico de infraestrutura sem custos.
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-sm py-3 px-8">
+                    Falar com Consultor ZRS
+                </a>
+            </div>
         </div>
+
     </article>
 </main>
 
 <style>
-.page-post {
-    padding-top: 10rem;
-    padding-bottom: 6rem;
-}
-
-.single-post {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.post-header {
-    margin-bottom: 3rem;
-}
-
-.back-link {
-    display: inline-block;
-    color: var(--brand-red);
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.post-date {
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-}
-
-.post-title {
-    font-size: 2.8rem;
-    color: var(--text-main);
-    line-height: 1.2;
-}
-
-.post-content {
-    font-size: 1.1rem;
-    color: var(--text-main);
+.glass-card p {
+    margin-bottom: 1.25rem;
+    color: #cbd5e1;
     line-height: 1.8;
 }
-
-.post-content p {
-    margin-bottom: 1.5rem;
-}
-
-.post-content strong {
-    color: var(--brand-red);
+.glass-card strong {
+    color: #00f0ff;
     font-weight: 600;
 }
-
-.post-content em {
-    font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .post-title { font-size: 2rem; }
-    .page-post { padding-top: 8rem; }
+.glass-card em {
+    color: #94a3b8;
 }
 </style>
 

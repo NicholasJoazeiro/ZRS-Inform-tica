@@ -1,246 +1,179 @@
 <%- include('../partials/header') %>
 
-<main>
-    <section class="page-hero">
-        <div class="container reveal">
-            <h1 class="text-gradient">Serviços e Inteligência em TI</h1>
-            <p class="service-intro">Projetos de infraestrutura robustos e consultoria estratégica para empresas que não podem parar.</p>
+<main class="relative overflow-hidden bg-[#030712] pt-24">
+    
+    <!-- PAGE HERO -->
+    <section class="py-16 tech-grid-bg relative">
+        <div class="glow-orb glow-orb-cyan top-10 left-1/2 -translate-x-1/2 opacity-40"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10 space-y-4 reveal">
+            <span class="tech-badge">Soluções Corporativas Em TI</span>
+            <h1 class="text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan">
+                Serviços e Inteligência em TI
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                Projetos de infraestrutura robustos e consultoria estratégica para empresas que necessitam de estabilidade contínua.
+            </p>
         </div>
     </section>
 
-    <section class="service-details">
-        <div class="container grid-dynamic">
-            <div class="glass-card service-card reveal" style="--delay: 0.1s">
-                <div class="card-icon glow-icon">⚡</div>
-                <h3 class="service-name">Infraestrutura & Redes</h3>
-                <p>Projetamos e gerenciamos a espinha dorsal da sua comunicação corporativa, garantindo alta performance e zero lentidão.</p>
-                <div class="service-tags">
-                    <span>Cabeamento Estruturado</span>
-                    <span>Projetos Wi-Fi 6</span>
-                    <span>Switches & Roteadores</span>
+    <!-- SERVICES GRID -->
+    <section class="py-16 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                            ⚡
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">
+                            Infraestrutura & Redes
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Projetamos e gerenciamos a espinha dorsal da sua comunicação corporativa, garantindo máxima taxa de transferência e estabilidade de conexão.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-cyan-500/20 text-cyan-300">Cabeamento Estruturado</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-cyan-500/20 text-cyan-300">Wi-Fi 6 Corporativo</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-cyan-500/20 text-cyan-300">Switches & Roteadores</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="glass-card service-card reveal" style="--delay: 0.2s">
-                <div class="card-icon glow-icon">🛡️</div>
-                <h3 class="service-name">Gestão de Servidores & Backup</h3>
-                <p>Controle total de ambientes locais e nuvem. Estratégias de backup híbrido para proteção absoluta contra Ransomware.</p>
-                <div class="service-tags">
-                    <span>Windows / Linux</span>
-                    <span>Backup em Nuvem</span>
-                    <span class="tag-alert">Recuperação de Desastres</span>
-                </div>
-            </div>
-            
-            <div class="glass-card service-card reveal" style="--delay: 0.3s">
-                <div class="card-icon glow-icon">🖥️</div>
-                <h3 class="service-name">Montagem & Hardware</h3>
-                <p>Consultoria técnica para montagem de estações de trabalho e servidores de alta performance sob medida para sua carga de trabalho.</p>
-                <div class="service-tags">
-                    <span>Workstations</span>
-                    <span>Upgrades Estratégicos</span>
-                    <span>Servidores Custom</span>
-                </div>
-            </div>
-            
-            <div class="glass-card service-card reveal" style="--delay: 0.4s">
-                <div class="card-icon glow-icon">🛡️</div>
-                <h3 class="service-name">Segurança e LGPD</h3>
-                <p>Implementamos camadas de segurança e adequação técnica para garantir a proteção absoluta dos dados e a total conformidade com a LGPD.</p>
-                <div class="service-tags">
-                    <span>Conformidade LGPD</span>
-                    <span>Proteção de Dados</span>
-                    <span>Criptografia</span>
-                </div>
-            </div>
 
-            <div class="glass-card service-card reveal" style="--delay: 0.5s">
-                <div class="card-icon glow-icon">💼</div>
-                <h3 class="service-name">Outsourcing de TI</h3>
-                <p>Gestão 360° da sua tecnologia. Tenha um departamento de TI completo focado na estratégia de crescimento do seu negócio.</p>
-                <div class="service-tags">
-                    <span>Gestão Preventiva</span>
-                    <span>CGO (Chief Governance)</span>
-                    <span>Redução de Custos</span>
+                <!-- Service 2 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300">
+                            🛡️
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-blue-300 transition-colors">
+                            Gestão de Servidores & Backup
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Controle total de ambientes locais e virtuais. Estratégias de backup híbrido para proteção absoluta contra desastres e sequestro de dados (Ransomware).
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-blue-500/20 text-blue-300">Windows / Linux</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-blue-500/20 text-blue-300">Backup Imutável em Nuvem</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300">Recuperação de Desastres</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="glass-card service-card reveal" style="--delay: 0.6s">
-                <div class="card-icon glow-icon">☁️</div>
-                <h3 class="service-name">Cloud & Mobilidade</h3>
-                <p>Soluções seguras para trabalho remoto e migração inteligente de servidores físicos para ambientes em nuvem escaláveis.</p>
-                <div class="service-tags">
-                    <span>VPNs Seguras</span>
-                    <span>Azure / AWS</span>
-                    <span>Home office Seguro</span>
+                <!-- Service 3 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                            🖥️
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-emerald-300 transition-colors">
+                            Montagem & Hardware
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Consultoria técnica especializada para especificação e montagem de estações de trabalho e servidores sob medida para cargas de processamento intensas.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-emerald-500/20 text-emerald-300">Workstations de Alta Performance</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-emerald-500/20 text-emerald-300">Upgrades Estratégicos</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-purple-500/20 transition-all duration-300">
+                            🔒
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-purple-300 transition-colors">
+                            Segurança & LGPD
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Implementação de camadas de segurança corporativa, política de controle de acesso (MFA/DLP) e adequação aos requerimentos técnicos da LGPD.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-purple-500/20 text-purple-300">Conformidade LGPD</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-purple-500/20 text-purple-300">Criptografia de Dados</span>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-300">
+                            💼
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-rose-300 transition-colors">
+                            Outsourcing de TI
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Gestão 360° da tecnologia da sua empresa. Transfira a responsabilidade de manutenção preventiva e suporte ao usuário para uma equipe dedicada.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-rose-500/20 text-rose-300">Gestão Preventiva NOC</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-rose-500/20 text-rose-300">Governança Digital</span>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-card glass-card-glow flex flex-col justify-between reveal group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
+                            ☁️
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-amber-300 transition-colors">
+                            Cloud & Mobilidade
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Migração segura de infraestruturas físicas para nuvens híbridas (Azure/AWS) e viabilização de conexões VPN para home office produtivo.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-amber-500/20 text-amber-300">Azure / AWS</span>
+                        <span class="text-xs py-1 px-3 rounded-full bg-slate-900/80 border border-amber-500/20 text-amber-300">VPNs Criptografadas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK MULTI-PLATFORM -->
+    <section class="py-20 bg-slate-950/80 border-t border-white/10 relative">
+        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10 reveal">
+            <span class="tech-badge mb-4">Multi-Plataforma</span>
+            <h2 class="section-title text-gradient-cyan">Expertise Técnica Completa</h2>
+            <p class="text-slate-300 text-base max-w-3xl mx-auto mb-12">
+                Dominamos os ecossistemas mais consolidados do mercado para garantir integração fluida entre seus servidores, estações de trabalho e ambientes na nuvem.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">Windows Server</span>
+                </div>
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">Linux Debian/RHEL</span>
+                </div>
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">macOS / iOS</span>
+                </div>
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">Android Enterprise</span>
+                </div>
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">Microsoft 365</span>
+                </div>
+                <div class="glass-card bg-slate-900/40 p-5 rounded-xl border border-white/5 hover:border-cyan-500/40 transition-all text-center">
+                    <span class="block font-heading font-bold text-slate-100 text-sm">Google Workspace</span>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <!-- Tech Stack / Partners -->
-    <section class="tech-partners">
-        <div class="container reveal">
-            <h2 class="section-title">Expertise Multi-Plataforma</h2>
-            <p class="partners-desc">Dominamos os sistemas operacionais e ecossistemas mais utilizados no mundo. Nossa equipe está preparada para gerir sua infraestrutura de ponta a ponta, independente da plataforma.</p>
-            <div class="partners-logos">
-                <div class="partner">Windows Server</div>
-                <div class="partner">Linux (Debian/RHEL)</div>
-                <div class="partner">macOS / iOS</div>
-                <div class="partner">Android Enterprise</div>
-                <div class="partner">Microsoft 365</div>
-                <div class="partner">Google Workspace</div>
-            </div>
-        </div>
-    </section>
 </main>
-
-<style>
-.page-hero {
-    padding-top: 12rem;
-    padding-bottom: 2rem;
-    text-align: center;
-}
-
-.service-details {
-    padding-top: 2rem;
-}
-
-.service-intro {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 2rem auto 0;
-}
-
-.grid-dynamic {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-}
-
-.service-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    animation-delay: var(--delay);
-}
-
-.service-name {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: var(--text-main);
-}
-
-.service-card p {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.glow-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 10px var(--brand-red));
-}
-
-.service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: auto;
-}
-
-.service-tags span {
-    background: var(--bg-deep);
-    border: 1px solid var(--border-color);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.service-tags .tag-alert {
-    border-color: var(--brand-red);
-    color: var(--brand-red);
-    background: rgba(139, 0, 0, 0.05);
-}
-
-.tech-partners {
-    background: #050505;
-    text-align: center;
-    padding: 6rem 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.tech-partners .section-title {
-    color: #ffffff;
-    font-size: 2.8rem;
-}
-
-.partners-desc {
-    color: #e0e0e0;
-    font-size: 1.25rem;
-    margin-bottom: 4rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.partners-logos {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-    opacity: 1;
-}
-
-.partner {
-    font-size: 2rem;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    color: white;
-    transition: var(--transition-smooth);
-}
-
-.partner:hover {
-    color: var(--brand-red);
-    transform: translateY(-5px);
-}
-
-@media (max-width: 991px) {
-    .partners-logos { gap: 2rem; }
-}
-
-@media (max-width: 768px) {
-    .page-hero { padding-top: 8rem; }
-    .page-hero h1 { font-size: 2.5rem; }
-    .grid-dynamic { gap: 1.5rem; }
-}
-
-@media (max-width: 480px) {
-    .page-hero h1 { font-size: 2rem; line-height: 1.2; }
-    .service-intro { font-size: 1.05rem; }
-    
-    /* Force 2 cards per line instead of 1 */
-    .grid-dynamic { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    
-    .service-card { padding: 1rem; text-align: left; }
-    .glow-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .service-name { font-size: 1rem; line-height: 1.2; margin-bottom: 0.5rem; min-height: 28px; }
-    .service-card p { font-size: 0.75rem; margin-bottom: 1rem; line-height: 1.3; }
-    
-    .service-tags { gap: 0.3rem; margin-top: auto; }
-    .service-tags span { padding: 0.15rem 0.4rem; font-size: 0.65rem; border-radius: 6px; }
-
-    .partner { font-size: 1.3rem; }
-    .tech-partners .section-title { font-size: 2rem; margin-bottom: 2rem; }
-    .tech-partners { padding: 3rem 0; }
-    .partners-logos { gap: 1.5rem; }
-}
-</style>
 
 <%- include('../partials/footer') %>

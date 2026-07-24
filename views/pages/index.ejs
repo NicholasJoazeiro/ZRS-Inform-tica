@@ -1,435 +1,369 @@
 <%- include('../partials/header') %>
 
-<main>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="video-overlay"></div>
-        <div class="container hero-content reveal">
-            <h1 class="hero-title text-gradient">Segurança, Estabilidade e Inteligência em TI para o Crescimento do Seu Negócio</h1>
-            <p class="hero-subtitle">Transformamos tecnologia em vantagem competitiva com foco em continuidade e proteção de dados.</p>
-            <div class="hero-ctas">
-                <a href="#diagnostico" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
-                <a href="<%= basePath %>/servicos.html" class="btn btn-outline" style="color:white; border-color:white;">Nossos Serviços</a>
+<main class="relative overflow-hidden bg-[#030712]">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 tech-grid-bg overflow-hidden">
+        <!-- Ambient Glow Orbs -->
+        <div class="glow-orb glow-orb-cyan top-1/4 -left-24 opacity-60"></div>
+        <div class="glow-orb glow-orb-blue bottom-10 -right-24 opacity-60"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+                
+                <!-- Authority Badge -->
+                <div class="inline-flex items-center">
+                    <span class="tech-badge">
+                        <span class="tech-badge-dot"></span>
+                        <span>25 Anos de Tradição e Inovação no Vale do Sinos</span>
+                    </span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-slate-100 tracking-tight leading-[1.15]">
+                    Segurança, Estabilidade e <br class="hidden sm:inline">
+                    <span class="text-gradient-cyan">Inteligência em TI</span> para o Seu Negócio
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+                    Transformamos infraestrutura de tecnologia em vantagem competitiva proativa com foco em continuidade operacional e blindagem de dados.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#diagnostico" class="btn btn-primary w-full sm:w-auto text-base py-4 px-8">
+                        <span>Solicitar Diagnóstico Gratuito</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                    <a href="<%= basePath %>/servicos.html" class="btn btn-outline w-full sm:w-auto text-base py-4 px-8">
+                        <span>Conhecer Nossos Serviços</span>
+                    </a>
+                </div>
+
+                <!-- Feature Pills -->
+                <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🛡️</span>
+                        <span class="text-xs font-medium text-slate-300">Proteção Anti-Ransomware</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">⚡</span>
+                        <span class="text-xs font-medium text-slate-300">Atendimento SLA Rápido</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🔒</span>
+                        <span class="text-xs font-medium text-slate-300">Conformidade LGPD</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                        <span class="text-xl">🌐</span>
+                        <span class="text-xs font-medium text-slate-300">Monitoramento 24/7</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-
-    <!-- Authority Counter -->
-    <section class="counter-section">
-        <div class="container counter-grid">
-            <div class="counter-item">
-                <span class="counter-number" data-target="25">0</span>
-                <span class="counter-label">Anos de Expertise</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="100">0</span>
-                <span class="counter-label">+ Clientes Ativos</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="2000">0</span>
-                <span class="counter-label">+ Usuários Impactados</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="100">0</span>
-                <span class="counter-label">% Seguros (Ransomware)</span>
-            </div>
-            <div class="counter-item">
-                <span class="counter-number" data-target="24">0</span>
-                <span class="counter-label">Hrs de Monitoramento</span>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Value Triad -->
-    <section class="triad">
-        <div class="container">
-            <h2 class="section-title reveal">Tríade de Valor ZRS</h2>
-            <div class="triad-grid">
-                <div class="glass-card reveal">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Segurança de Redes</h3>
-                    <p>Ambientes blindados com firewalls avançados e monitoramento proativo de ameaças em tempo real.</p>
+    <!-- AUTHORITY COUNTER SECTION -->
+    <section class="counter-section py-16 bg-slate-950/80 border-y border-white/10 relative">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+                
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="25">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Anos de Expertise</span>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-icon">🧠</div>
-                    <h3>Consultoria Estratégica</h3>
-                    <p>Planejamento de infraestrutura escalável que antecipa as necessidades do seu crescimento.</p>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Clientes Ativos</span>
                 </div>
-                <div class="glass-card reveal">
-                    <div class="card-icon">🚀</div>
-                    <h3>Suporte Especializado</h3>
-                    <p>Atendimento humanizado e ágil focado na continuidade operacional do seu negócio.</p>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="2000">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Usuários Protegidos</span>
                 </div>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">%</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Segurança em Nuvem</span>
+                </div>
+
+                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all col-span-2 lg:col-span-1">
+                    <div class="flex items-baseline justify-center">
+                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="24">0</span>
+                        <span class="text-2xl font-bold text-cyan-400 ml-1">/7</span>
+                    </div>
+                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Monitoramento NOC</span>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ROI Section -->
-    <section class="roi-section reveal">
-        <div class="container">
-            <div class="roi-content">
-                <div class="roi-text">
-                    <h2 class="text-gradient">O Impacto da TI Inteligente</h2>
-                    <p>Não somos um custo, somos um investimento. Empresas que otimizam sua infraestrutura de rede e governança de dados experimentam:</p>
-                    <ul class="roi-list">
-                        <li><strong>Até 30%</strong> de redução em custos operacionais por falhas.</li>
-                        <li><strong>Zero Tempo de Inatividade</strong> com planos de contingência robustos.</li>
-                        <li><strong>Conformidade Total</strong> com a LGPD, evitando multas severas.</li>
+    <!-- VALUE TRIAD SECTION -->
+    <section class="py-24 relative">
+        <div class="glow-orb glow-orb-cyan top-1/3 left-10 opacity-30"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="section-title text-gradient-cyan">Tríade de Valor ZRS</h2>
+                <p class="section-subtitle">
+                    Fundamentamos nossa governança em três pilares estratégicos para garantir alta disponibilidade e proteção contínua.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+                        🛡️
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">
+                        Segurança de Redes
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ambientes corporativos blindados com Firewalls de Nova Geração (NGFW), inspeção profunda de pacotes e mitigação proativa de ameaças em tempo real.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                        🧠
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-blue-300 transition-colors">
+                        Consultoria Estratégica
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Planejamento de arquitetura de TI escalável que transforma a tecnologia em vetor de crescimento, eliminando custos com gargalos técnicos.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card glass-card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(225,29,72,0.15)]">
+                        🚀
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-rose-300 transition-colors">
+                        Suporte Especializado
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Atendimento com SLA ágil e corpo técnico dedicado, focado em resolver ocorrências sem causar paradas na sua operação diária.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI & IMPACT SECTION -->
+    <section class="py-20 bg-slate-950/60 border-y border-white/5 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 reveal">
+                    <span class="tech-badge">Retorno Sobre Investimento</span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-100">
+                        O Impacto Real de uma <span class="text-gradient-cyan">TI Gerenciada</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Não somos um centro de custos — somos parceiros na aceleração do seu negócio. Empresas que migram para nosso modelo preventivo registram:
+                    </p>
+                    
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Até 30% de redução de custos operacionais:</strong>
+                                <span class="text-slate-400 text-sm block">Eliminação de paradas desnecessárias e retrabalho de equipe.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Zero Inatividade Crítica:</strong>
+                                <span class="text-slate-400 text-sm block">Planos de contingência e backups imutáveis redundantes.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100">Conformidade Total com LGPD:</strong>
+                                <span class="text-slate-400 text-sm block">Blindagem jurídica e técnica contra vazamento de dados confidenciais.</span>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="roi-box glass-card">
-                    <div class="roi-stat">30%</div>
-                    <div class="roi-stat-label">Otimização de Custos</div>
+
+                <div class="lg:col-span-5 reveal">
+                    <div class="glass-card bg-slate-900/80 border-cyan-500/30 p-8 text-center space-y-4 relative overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)]">
+                        <div class="glow-orb glow-orb-cyan -top-20 -right-20 opacity-40"></div>
+                        <span class="text-xs uppercase font-heading font-semibold text-cyan-400 tracking-wider">Média de Economia</span>
+                        <div class="text-6xl sm:text-7xl font-heading font-black text-gradient-cyan leading-none">
+                            30%
+                        </div>
+                        <div class="text-sm font-medium text-slate-300">
+                            Otimização no Custo Total de Propriedade (TCO) de Tecnologia
+                        </div>
+                        <div class="pt-4">
+                            <a href="#diagnostico" class="btn btn-primary w-full text-sm py-3">
+                                Calcular para Minha Empresa
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Methodology -->
-    <section class="methodology reveal">
-        <div class="container">
-            <h2 class="section-title">Nossa Metodologia de Gestão</h2>
-            <div class="method-steps">
-                <div class="step glass-card">
-                    <div class="step-icon">🔍</div>
-                    <div class="step-num">01</div>
-                    <h4>Avaliação</h4>
-                    <p>Diagnóstico profundo da infraestrutura atual.</p>
+    <!-- METHODOLOGY SECTION -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="section-title text-gradient-cyan">Nossa Metodologia de Gestão</h2>
+                <p class="section-subtitle">
+                    Um fluxo contínuo de 4 etapas desenhado para garantir previsibilidade, segurança e máxima performance.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Step 01 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">🔍</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">01</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Avaliação</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Diagnóstico completo da infraestrutura, mapeando riscos de segurança e gargalos de velocidade.
+                    </p>
                 </div>
-                <div class="step glass-card">
-                    <div class="step-icon">📐</div>
-                    <div class="step-num">02</div>
-                    <h4>Planejamento</h4>
-                    <p>Arquitetura da solução ideal sob medida.</p>
+
+                <!-- Step 02 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">📐</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">02</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Planejamento</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Desenho da arquitetura de solução sob medida com priorização de dados críticos.
+                    </p>
                 </div>
-                <div class="step glass-card">
-                    <div class="step-icon">⚙️</div>
-                    <div class="step-num">03</div>
-                    <h4>Implementação</h4>
-                    <p>Execução técnica com foco em zero downtime.</p>
+
+                <!-- Step 03 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">⚙️</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">03</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Implementação</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Execução técnica especializada com foco em zero paralisação operacional (zero downtime).
+                    </p>
                 </div>
-                <div class="step glass-card">
-                    <div class="step-icon">📈</div>
-                    <div class="step-num">04</div>
-                    <h4>Gestão Contínua</h4>
-                    <p>Monitoramento 24/7 e melhoria constante.</p>
+
+                <!-- Step 04 -->
+                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl">📈</span>
+                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">04</span>
+                    </div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Gestão Contínua</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Monitoramento 24/7, relatórios periódicos e atualizações contínuas de segurança.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- BLOG PREVIEW SECTION -->
+    <section class="py-20 bg-slate-950/40 border-t border-white/5">
+        <div class="container mx-auto px-4 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <span class="tech-badge mb-3">Conhecimento Técnico</span>
+                    <h2 class="section-title text-left text-gradient-cyan mb-0">Artigos e Novidades</h2>
+                </div>
+                <a href="<%= basePath %>/blog.html" class="btn btn-outline text-xs py-2.5 px-5 mt-4 md:mt-0">
+                    Ver Todos os Artigos →
+                </a>
+            </div>
 
-    <!-- Blog Preview Section -->
-    <section class="blog-preview-section reveal">
-        <div class="container">
-            <h2 class="section-title text-gradient">Novidades e Artigos</h2>
-            <div class="blog-grid">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <% if(typeof blogs !== 'undefined' && blogs.length > 0) { %>
                     <% blogs.forEach(post => { %>
-                        <div class="glass-card blog-card">
-                            <span class="blog-date"><%= post.date %></span>
-                            <h3 class="blog-title"><%= post.title %></h3>
-                            <p class="blog-excerpt"><%= post.excerpt %></p>
-                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="blog-link">Ler artigo →</a>
+                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                            <div>
+                                <span class="text-xs font-semibold text-cyan-400 block mb-2"><%= post.date %></span>
+                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                    <%= post.title %>
+                                </h3>
+                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                    <%= post.excerpt %>
+                                </p>
+                            </div>
+                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                                <span>Ler artigo completo</span>
+                                <span>→</span>
+                            </a>
                         </div>
                     <% }) %>
                 <% } else { %>
-                    <p style="text-align: center; color: var(--text-muted); width: 100%;">Nenhum artigo disponível no momento.</p>
-                <% } %><!-- Note: backend will pass slice of blogs to index render -->
+                    <p class="text-slate-400 text-center col-span-3">Nenhum artigo disponível no momento.</p>
+                <% } %>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="<%= basePath %>/blog.html" class="btn btn-outline">Ver Todos os Artigos</a>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section id="diagnostico" class="py-24 relative overflow-hidden">
+        <div class="glow-orb glow-orb-cyan top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="glass-card bg-slate-900/90 border-cyan-500/40 p-10 sm:p-16 rounded-3xl text-center max-w-4xl mx-auto space-y-6 shadow-[0_0_60px_rgba(6,182,212,0.2)] reveal">
+                <span class="tech-badge">Diagnóstico Gratuito</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-100 leading-tight">
+                    Pronto para Elevar o Nível da Sua TI?
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                    Garanta a estabilidade e proteção que seu negócio necessita. Agende uma consultoria sem compromisso com nossos especialistas.
+                </p>
+                <div class="pt-4 flex justify-center">
+                    <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-base py-4 px-10">
+                        <span>Falar com Consultor Agora</span>
+                        <span class="text-xl">💬</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <!-- CTA Section -->
-    <section id="diagnostico" class="final-cta">
-        <div class="container reveal">
-            <div class="glass-card cta-box">
-                <h2>Pronto para profissionalizar sua TI?</h2>
-                <p>Garanta a estabilidade que sua empresa merece com um parceiro local e experiente.</p>
-                <a href="https://wa.me/5551994374526" class="btn btn-primary">Solicitar Diagnóstico Gratuito</a>
-            </div>
-        </div>
-    </section>
 </main>
-
-<style>
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), 
-                url('<%= basePath %>/assets/images/hero-bg-v3.png') center/cover;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 900px;
-}
-
-.hero-title {
-    font-size: 4rem;
-
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    color: #ffffff; /* Better contrast in light mode via absolute white on dark hero */
-}
-.hero-title.text-gradient {
-    /* override text-gradient for hero to always be bright */
-    background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #dddddd; /* override text-muted to ensure visibility */
-    margin-bottom: 3rem;
-    max-width: 600px;
-}
-
-
-.hero-ctas {
-    display: flex;
-    gap: 1.5rem;
-}
-
-/* Counters */
-.counter-section {
-    background: var(--footer-bg);
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.counter-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 1rem;
-    text-align: center;
-    overflow-x: auto; /* Allow scrolling on smaller screens */
-    padding-bottom: 1rem; /* Space for scrollbar */
-}
-
-.counter-item {
-    flex: 1 1 0;
-    min-width: 150px;
-}
-
-
-
-.counter-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    color: var(--brand-red);
-}
-
-.counter-label {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Triad */
-.triad-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-/* ROI */
-.roi-content {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-}
-
-.roi-list {
-    margin-top: 2rem;
-}
-
-.roi-list li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.roi-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--brand-red);
-}
-
-.roi-box {
-    text-align: center;
-    padding: 4rem;
-    min-width: 300px;
-    border: 2px solid var(--brand-red);
-}
-
-.roi-stat {
-    font-size: 5rem;
-    font-weight: 800;
-    color: var(--brand-red);
-    line-height: 1;
-}
-
-/* Methodology */
-.method-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    position: relative;
-    padding-top: 2rem;
-}
-
-.step {
-    padding: 2.5rem;
-    position: relative;
-    border-radius: 16px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.step-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.4));
-}
-
-.step-num {
-    font-size: 2.5rem;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    color: var(--brand-red);
-    opacity: 0.8;
-    margin-bottom: 1rem;
-}
-
-.final-cta {
-    text-align: center;
-}
-
-.cta-box {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-box h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.cta-box p {
-    margin-bottom: 2.5rem;
-    color: var(--text-muted);
-}
-
-/* Blog Preview */
-.blog-preview-section {
-    padding-top: 0;
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.blog-card {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-}
-
-.blog-date {
-    font-size: 0.85rem;
-    color: var(--brand-red);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.blog-title {
-    font-size: 1.3rem;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.blog-excerpt {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-}
-
-.blog-link {
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.9rem;
-    align-self: flex-start;
-}
-.blog-link:hover {
-    color: var(--brand-red);
-    padding-left: 5px;
-}
-
-@media (max-width: 991px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-ctas { flex-direction: column; width: 100%; }
-    .hero-ctas .btn { text-align: center; width: 100%; }
-    .counter-grid { 
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 2rem; 
-        overflow-x: hidden;
-    }
-    .triad-grid { grid-template-columns: 1fr; }
-    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .roi-content { flex-direction: column; text-align: center; gap: 3rem; }
-    .roi-box { min-width: 100%; padding: 3rem 1rem; }
-}
-
-@media (max-width: 480px) {
-    .hero-title { font-size: 2rem; line-height: 1.2; }
-    .hero-subtitle { font-size: 1.05rem; }
-    .counter-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .counter-number { font-size: 2.5rem; }
-    .method-steps { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-    .step { padding: 1rem; }
-    .step-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .step-num { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .step h4 { font-size: 0.95rem; }
-    .step p { font-size: 0.8rem; }
-    
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .blog-card { padding: 1rem; }
-    .blog-title { font-size: 1rem; margin-bottom: 0.5rem; }
-    .blog-excerpt { font-size: 0.85rem; margin-bottom: 1rem; }
-    
-    .roi-stat { font-size: 3.5rem; }
-    .roi-box { padding: 2rem 1rem; }
-}
-</style>
 
 <%- include('../partials/footer') %>

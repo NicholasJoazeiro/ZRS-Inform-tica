@@ -1,104 +1,51 @@
 <%- include('../partials/header') %>
 
-<main>
-    <section class="page-hero">
-        <div class="container reveal">
-            <h1 class="text-gradient">Nosso Blog</h1>
-            <p class="service-intro">Dicas, tendências e melhores práticas em infraestrutura e segurança da informação.</p>
+<main class="relative overflow-hidden bg-[#030712] pt-24 min-h-screen">
+
+    <!-- PAGE HERO -->
+    <section class="py-16 tech-grid-bg relative">
+        <div class="glow-orb glow-orb-cyan top-10 left-1/2 -translate-x-1/2 opacity-40"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10 space-y-4 reveal">
+            <span class="tech-badge">Blog & Artigos Técnicos</span>
+            <h1 class="text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan">
+                Central de Conhecimento
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                Dicas, tendências e melhores práticas em infraestrutura, redes e segurança da informação.
+            </p>
         </div>
     </section>
 
-    <!-- Blog List -->
-    <section class="blog-list-section">
-        <div class="container">
-            <div class="blog-grid">
+    <!-- BLOG GRID -->
+    <section class="py-12 pb-24 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <% if(typeof blogs !== 'undefined' && blogs.length > 0) { %>
                     <% blogs.forEach(post => { %>
-                        <div class="glass-card blog-card reveal">
-                            <span class="blog-date"><%= post.date %></span>
-                            <h3 class="blog-title"><%= post.title %></h3>
-                            <p class="blog-excerpt"><%= post.excerpt %></p>
-                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="blog-link">Ler artigo →</a>
+                        <div class="glass-card bg-slate-900/60 p-6 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
+                            <div>
+                                <span class="text-xs font-semibold text-cyan-400 block mb-2"><%= post.date %></span>
+                                <h3 class="text-xl font-heading font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors line-clamp-2">
+                                    <%= post.title %>
+                                </h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3">
+                                    <%= post.excerpt %>
+                                </p>
+                            </div>
+                            <a href="<%= basePath %>/blog/<%= post.slug %>.html" class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 group-hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                                <span>Ler artigo completo</span>
+                                <span>→</span>
+                            </a>
                         </div>
                     <% }) %>
                 <% } else { %>
-                    <p style="text-align: center; color: var(--text-muted); width: 100%;">Nenhum artigo disponível no momento.</p>
+                    <p class="text-slate-400 text-center col-span-3">Nenhum artigo disponível no momento.</p>
                 <% } %>
             </div>
         </div>
     </section>
+
 </main>
-
-<style>
-.page-hero {
-    padding-top: 12rem;
-    padding-bottom: 2rem;
-    text-align: center;
-}
-
-.blog-list-section {
-    padding-top: 2rem;
-    padding-bottom: 6rem;
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.blog-card {
-    display: flex;
-    flex-direction: column;
-    padding: 2.5rem;
-}
-
-.blog-date {
-    font-size: 0.85rem;
-    color: var(--brand-red);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.blog-title {
-    font-size: 1.4rem;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
-
-.blog-excerpt {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-}
-
-.blog-link {
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.95rem;
-    align-self: flex-start;
-}
-.blog-link:hover {
-    color: var(--brand-red);
-    padding-left: 5px;
-}
-
-@media (max-width: 991px) {
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-}
-
-@media (max-width: 480px) {
-    .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-    .blog-card { padding: 1.2rem; }
-    .blog-title { font-size: 1rem; margin-bottom: 0.5rem; }
-    .blog-excerpt { font-size: 0.8rem; margin-bottom: 1rem; }
-    .blog-date { font-size: 0.75rem; margin-bottom: 0.5rem; }
-    .blog-link { font-size: 0.85rem; }
-}
-
-</style>
 
 <%- include('../partials/footer') %>

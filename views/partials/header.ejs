@@ -1,191 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                bg: '#030712',
+                card: 'rgba(15, 23, 42, 0.65)',
+                cyan: '#00f0ff',
+                cyanGlow: '#06b6d4',
+                blue: '#3b82f6',
+                red: '#e11d48',
+                slate: '#0f172a'
+              }
+            },
+            fontFamily: {
+              heading: ['Outfit', 'sans-serif'],
+              body: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="<%= basePath %>/assets/css/style.css">
     <meta name="description" content="Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos. 25 anos de expertise em infraestrutura, redes e consultoria.">
     <link rel="icon" type="image/png" href="<%= basePath %>/assets/images/icone.png">
 </head>
-<body>
+<body class="bg-[#030712] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
 
-<header class="main-header">
-    <div class="container nav-container">
-        <a href="<%= basePath %>/index.html" class="logo">
-            <img src="<%= basePath %>/assets/images/logozrs.png" alt="ZRS Informática Logo" class="logo-img">
+<header class="main-header fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+    <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="<%= basePath %>/index.html" class="flex items-center gap-3 group">
+            <img src="<%= basePath %>/assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(0,240,255,0.25)]">
         </a>
         
-        <nav class="nav-links">
-            <a href="<%= basePath %>/index.html" class="nav-item">Home</a>
-            <a href="<%= basePath %>/servicos.html" class="nav-item">Serviços</a>
-            <a href="<%= basePath %>/sobre.html" class="nav-item">Quem Somos</a>
-            <a href="<%= basePath %>/suporte.html" class="nav-item">Suporte</a>
-            <a href="<%= basePath %>/blog.html" class="nav-item">Blog</a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="<%= basePath %>/index.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Home
+            </a>
+            <a href="<%= basePath %>/servicos.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Serviços
+            </a>
+            <a href="<%= basePath %>/sobre.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Quem Somos
+            </a>
+            <a href="<%= basePath %>/suporte.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Suporte
+            </a>
+            <a href="<%= basePath %>/blog.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+                Blog
+            </a>
         </nav>
         
-        <div class="header-actions">
-            <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary btn-sm">Contato</a>
+        <!-- Actions -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-xs py-2.5 px-5 rounded-lg flex items-center gap-2">
+                <span>Falar com Especialista</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
         </div>
 
-        
-        <div class="mobile-toggle" id="mobile-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <!-- Mobile Toggle Button -->
+        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg bg-slate-900/80 border border-white/10 text-slate-200 focus:outline-none">
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-slate-200 rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-cyan-500/20 px-6 py-6 transition-all duration-300">
+        <nav class="flex flex-col gap-4">
+            <a href="<%= basePath %>/index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Home
+            </a>
+            <a href="<%= basePath %>/servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Serviços
+            </a>
+            <a href="<%= basePath %>/sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Quem Somos
+            </a>
+            <a href="<%= basePath %>/suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Suporte
+            </a>
+            <a href="<%= basePath %>/blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+                Blog
+            </a>
+            <div class="pt-4 border-t border-white/10 mt-2">
+                <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary w-full text-center justify-center py-3">
+                    Falar com Especialista
+                </a>
+            </div>
+        </nav>
     </div>
 </header>
 
 <style>
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 1.25rem 0;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: var(--bg-glass);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
 .main-header.scrolled {
-    padding: 0.75rem 0;
-    background: var(--bg-card);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-color: rgba(3, 7, 18, 0.95);
+    box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
 }
 
-[data-theme="dark"] .main-header.scrolled {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.mobile-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.mobile-toggle.active .bar:nth-child(2) {
+    opacity: 0;
 }
-
-.logo-img {
-    height: 55px;
-    width: auto;
-}
-
-[data-theme="dark"] .logo-img {
-    background: transparent;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
-}
-
-
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.btn-icon, .btn-theme {
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius: 50%;
-    transition: var(--transition-smooth);
-}
-.btn-icon:hover, .btn-theme:hover {
-    background: var(--border-color);
-    color: var(--brand-red);
-}
-
-.nav-item {
-    font-family: var(--font-heading);
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-item:hover { color: var(--text-main); }
-
-.mobile-toggle {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.mobile-toggle span {
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-main);
-}
-
-@keyframes slideDownMenu {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 991px) {
-    .main-header {
-        background: var(--bg-card);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-    .nav-links { 
-        display: none; 
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-card);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        border-bottom: 1px solid var(--border-color);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        flex-direction: column;
-        padding: 0;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        gap: 0;
-    }
-    [data-theme="dark"] .main-header,
-    [data-theme="dark"] .nav-links {
-        background: #141414; /* solid dark card bg */
-    }
-    .nav-links.active {
-        display: flex;
-        animation: slideDownMenu 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .nav-item {
-        padding: 1.25rem 0;
-        width: 100%;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(139, 0, 0, 0.05);
-        display: block;
-    }
-    [data-theme="dark"] .nav-item { border-bottom-color: rgba(255, 255, 255, 0.05); }
-    
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-    .mobile-toggle { display: flex; z-index: 1001; }
-}
-
-@media (max-width: 480px) {
-    .logo-img { height: 40px; }
-    .btn.btn-sm { padding: 0.6rem 1rem; font-size: 0.8rem; }
-    .header-actions { gap: 0.5rem; }
+.mobile-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 </style>

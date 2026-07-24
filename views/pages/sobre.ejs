@@ -1,249 +1,138 @@
 <%- include('../partials/header') %>
 
-<main>
-    <section class="page-hero">
-        <div class="container reveal">
-            <h1 class="text-gradient">Quem Somos</h1>
-            <p class="service-intro">Tradição de 25 anos unida à agilidade da nova era digital.</p>
+<main class="relative overflow-hidden bg-[#030712] pt-24">
+
+    <!-- PAGE HERO -->
+    <section class="py-16 tech-grid-bg relative">
+        <div class="glow-orb glow-orb-cyan top-10 left-1/2 -translate-x-1/2 opacity-40"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10 space-y-4 reveal">
+            <span class="tech-badge">Sobre A ZRS Informática</span>
+            <h1 class="text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan">
+                Quem Somos
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                Uma trajetória consolidada de 25 anos unindo a robustez da engenharia de redes à agilidade da nova era digital.
+            </p>
         </div>
     </section>
 
-    <section class="narrative">
-        <div class="container">
-            <div class="narrative-grid">
-                <div class="narrative-text reveal">
-                    <h2 class="section-title text-left">Nossa História</h2>
-                    <p>A ZRS Informática não nasceu ontem. Nossa autoridade é fundamentada em uma trajetória de mais de 25 anos de competência no setor de tecnologia no Vale do Sinos.</p>
-                    <p>Atravessamos diversas eras da computação: desde a implementação das primeiras redes locais até a complexidade da computação em nuvem e segurança moderna. Essa permanência em um setor marcado pela obsolescência rápida prova nossa capacidade adaptativa robusta.</p>
-                    
-                    <div class="timeline-box">
-                        <div class="timeline-item">
-                            <span class="year">1999 +</span>
-                            <span class="event">Fundação da expertise em redes e suporte técnico regional.</span>
+    <!-- NARRATIVE & TIMELINE -->
+    <section class="py-16 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Story Text -->
+                <div class="lg:col-span-7 space-y-6 reveal">
+                    <span class="tech-badge">Nossa Trajetória</span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-100">
+                        Mais de 25 Anos de <span class="text-gradient-cyan">Competência Reconhecida</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        A ZRS Informática é uma referência consolidada em TI corporativa no Vale do Sinos. Acompanhamos e lideramos as transformações tecnológicas nas últimas décadas — desde a instalação de redes locais pioneiras até a governança de ambientes multicloud e segurança cibernética avançada.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Em um setor caracterizado por mudanças aceleradas, nossa longevidade comprova uma capacidade de adaptação constante e um compromisso inegociável com a continuidade de negócios dos nossos parceiros.
+                    </p>
+
+                    <!-- Neon Timeline -->
+                    <div class="pt-6 border-l-2 border-cyan-500/40 pl-6 space-y-8 relative">
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-cyan-400 border-4 border-[#030712] shadow-[0_0_12px_#00f0ff]"></span>
+                            <h4 class="font-heading font-bold text-cyan-400 text-lg">1999 +</h4>
+                            <p class="text-slate-300 text-sm mt-1">Fundação da expertise em suporte técnico corporativo e projetos de cabeamento estruturado.</p>
                         </div>
-                        <div class="timeline-item">
-                            <span class="year">2026</span>
-                            <span class="event">Momento atual: Atendemos mais de 100 clientes corporativos e impactamos mais de 2000 usuários diariamente com nossa governança de TI.</span>
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-cyan-400 border-4 border-[#030712] shadow-[0_0_12px_#00f0ff]"></span>
+                            <h4 class="font-heading font-bold text-cyan-400 text-lg">Presente</h4>
+                            <p class="text-slate-300 text-sm mt-1">Mais de 100 empresas atendidas e mais de 2.000 usuários protegidos diariamente com monitoramento NOC 24/7.</p>
                         </div>
                     </div>
                 </div>
-                <div class="hq-image-box reveal">
-                    <img src="<%= basePath %>/assets/images/sedezrs.png" alt="Sede ZRS Informática" class="hq-image">
+
+                <!-- Headquarters Image -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="glass-card bg-slate-900/60 p-4 rounded-3xl border-cyan-500/30 group hover:border-cyan-400 transition-all shadow-[0_0_40px_rgba(6,182,212,0.15)]">
+                        <div class="overflow-hidden rounded-2xl">
+                            <img src="<%= basePath %>/assets/images/sedezrs.png" alt="Sede ZRS Informática" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-4 text-center">
+                            <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider block">Sede Própria & Centro Tecnológico</span>
+                            <span class="text-slate-400 text-xs">Novo Hamburgo - Rio Grande do Sul</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section class="location-section reveal">
-        <div class="container">
-            <div class="glass-card map-box text-center">
-                <h2 class="section-title">Presença Local</h2>
-                <p>Com sede estratégica em Novo Hamburgo, atendemos com agilidade as cidades de Ivoti, Dois Irmãos e Estância Velha.</p>
-                <div class="map-container">
+    <!-- LOCATION & MAP -->
+    <section class="py-16 bg-slate-950/60 border-y border-white/5 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="glass-card bg-slate-900/80 p-8 sm:p-12 rounded-3xl border border-white/10 text-center max-w-4xl mx-auto space-y-6 reveal">
+                <span class="tech-badge">Atendimento Regional</span>
+                <h2 class="text-3xl font-heading font-bold text-slate-100">Presença Local Estratégica</h2>
+                <p class="text-slate-300 text-sm max-w-xl mx-auto">
+                    Atendemos presencialmente com agilidade as cidades de Novo Hamburgo, Ivoti, Dois Irmãos, Estância Velha e toda a região do Vale do Sinos.
+                </p>
+
+                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.757134375971!2d-51.1278119!3d-29.6834169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519424c88b77a0b%3A0x897914e9f73f5a11!2sR.%20Santo%20%C3%82ngelo%2C%20506%20-%20Guarani%2C%20Novo%20Hamburgo%20-%20RS%2C%2093520-210!5e0!3m2!1spt-BR!2sbr!4v1712078000000!5m2!1spt-BR!2sbr" 
                         width="100%" 
-                        height="450" 
-                        style="border:0; border-radius: 12px;" 
+                        height="380" 
+                        style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.1);" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
-                <p class="address-footer">📍 Rua Santo Angelo, 506 | Bairro Guarani, Novo Hamburgo - RS</p>
+
+                <div class="pt-2 text-sm font-semibold text-cyan-400 flex items-center justify-center gap-2">
+                    <span>📍</span>
+                    <span>Rua Santo Ângelo, 506 - Bairro Guarani, Novo Hamburgo - RS</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- DIFFERENTIALS -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="tech-badge mb-3">Nossos Pilares</span>
+                <h2 class="section-title text-gradient-cyan">Diferenciais Competitivos</h2>
+            </div>
 
-    <section class="team-values reveal">
-        <div class="container">
-            <h2 class="section-title">Nossos Diferenciais</h2>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="value-icon">🚀</div>
-                    <h4>SLA & Agilidade</h4>
-                    <p>Atendimento personalizado que entende a urgência do seu negócio.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card bg-slate-900/50 p-8 rounded-2xl border border-white/10 text-center reveal group hover:border-cyan-500/40 transition-all">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">SLA & Agilidade</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Atendimento com tempos de resposta garantidos em contrato para tratar ocorrências com máxima urgência.
+                    </p>
                 </div>
-                <div class="value-item">
-                    <div class="value-icon">🤝</div>
-                    <h4>Foco no Cliente</h4>
-                    <p>"Sua necessidade é nossa especialidade" — transição do foco em hardware para a continuidade do negócio.</p>
+
+                <div class="glass-card bg-slate-900/50 p-8 rounded-2xl border border-white/10 text-center reveal group hover:border-cyan-500/40 transition-all">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🤝</div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Foco no Cliente</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        "Sua necessidade é nossa especialidade" — parceria focada na continuidade do seu negócio.
+                    </p>
                 </div>
-                <div class="value-item">
-                    <div class="value-icon">💎</div>
-                    <h4>Transparência</h4>
-                    <p>Processos estruturados e relatórios claros de cada intervenção.</p>
+
+                <div class="glass-card bg-slate-900/50 p-8 rounded-2xl border border-white/10 text-center reveal group hover:border-cyan-500/40 transition-all">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💎</div>
+                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Transparência Total</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Relatórios técnicos claros de cada intervenção e métricas de desempenho de infraestrutura.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+
 </main>
-
-<style>
-.page-hero {
-    padding-top: 12rem;
-    padding-bottom: 2rem;
-    text-align: center;
-}
-
-.narrative {
-    padding-top: 2rem;
-}
-
-.section-title.text-left {
-    text-align: left;
-    font-size: 2.2rem;
-}
-
-.narrative-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 5rem;
-    align-items: center;
-}
-
-.narrative-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.timeline-box {
-    margin-top: 3rem;
-    border-left: 2px solid var(--brand-red);
-    padding-left: 2rem;
-}
-
-.timeline-item {
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: calc(-2rem - 6px);
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    background: var(--brand-red);
-    border-radius: 50%;
-}
-
-.year {
-    display: block;
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
-}
-
-.event {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-.hq-image-box {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-}
-
-.hq-image {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    transition: var(--transition-smooth);
-    object-fit: cover;
-}
-
-.hq-image:hover {
-    transform: scale(1.02);
-    border-color: var(--brand-red);
-    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.2);
-}
-
-.location-section {
-    padding-top: 2rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.team-values {
-    padding-top: 1rem;
-}
-
-.map-box {
-    padding: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.map-container {
-    margin: 2rem 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-
-.address-footer {
-    font-weight: 600;
-    color: var(--text-main);
-    margin-top: 1rem;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-top: 0;
-}
-
-.value-item {
-    text-align: center;
-}
-
-.value-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.value-item h4 {
-    color: var(--brand-red);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.value-item p {
-    color: var(--text-muted);
-}
-
-@media (max-width: 991px) {
-    .narrative-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .values-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-    .page-hero { padding-top: 8rem; }
-    .section-title.text-left { text-align: center; font-size: 2rem; }
-    .narrative-text { text-align: center; }
-    .timeline-box { text-align: left; }
-    .map-box { padding: 1.5rem; }
-}
-
-@media (max-width: 480px) {
-    .page-hero h1 { font-size: 2rem; }
-    .service-intro { font-size: 1.05rem; }
-    .hq-image { border-radius: 8px; }
-    .timeline-item::before { transform: scale(0.8); left: calc(-2rem - 5px); }
-    .value-icon { font-size: 2.5rem; }
-}
-</style>
 
 <%- include('../partials/footer') %>
