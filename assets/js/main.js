@@ -35,18 +35,20 @@ if (waToggle && waMenu) {
     });
 }
 
-// Theme Toggle (Default Futuristic Dark Mode)
+// Theme Toggle
+// Padrão: tema claro, onde as bandas escuras e claras se alternam ao longo da página.
+// Tema escuro: as bandas claras viram grafite, mantendo o mesmo ritmo de contraste.
 const themeToggle = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme') || 'dark';
+const currentTheme = localStorage.getItem('theme') || 'light';
 
 const applyTheme = (theme) => {
-    if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.documentElement.setAttribute('data-theme', 'light');
-        if (themeToggle) themeToggle.innerText = '☀️';
-    } else {
+    if (theme === 'dark') {
         document.documentElement.classList.add('dark');
         document.documentElement.setAttribute('data-theme', 'dark');
+        if (themeToggle) themeToggle.innerText = '☀️';
+    } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
         if (themeToggle) themeToggle.innerText = '🌙';
     }
 };

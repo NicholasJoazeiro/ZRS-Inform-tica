@@ -9,18 +9,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              cyber: {
-                bg: '#030712',
-                card: 'rgba(15, 23, 42, 0.65)',
-                cyan: '#00f0ff',
-                cyanGlow: '#06b6d4',
-                blue: '#3b82f6',
-                red: '#e11d48',
-                slate: '#0f172a'
+              zrs: {
+                red: '#8b0000',
+                redBright: '#b30000',
+                redDeep: '#5c0000',
+                redSoft: '#e05555',
+                black: '#0b0b0d',
+                graphite: '#141417',
+                grey: '#6a6a73',
+                greyLight: '#f4f4f5'
               }
             },
             fontFamily: {
@@ -32,36 +32,45 @@
       }
     </script>
     
+    <!-- Tema aplicado antes do primeiro paint, para não piscar nem travar transições -->
+    <script>
+      (function () {
+        var t = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta name="description" content="Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos. 25 anos de expertise em infraestrutura, redes e consultoria.">
     <link rel="icon" type="image/png" href="./assets/images/icone.png">
 </head>
-<body class="bg-[#030712] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+<body class="antialiased">
 
-<header class="main-header fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+<header class="main-header band-dark fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b hairline">
     <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
         
         <!-- Logo -->
         <a href="./index.html" class="flex items-center gap-3 group">
-            <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(0,240,255,0.25)]">
+            <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105">
         </a>
         
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
-            <a href="./index.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="./index.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Home
             </a>
-            <a href="./servicos.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="./servicos.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Serviços
             </a>
-            <a href="./sobre.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="./sobre.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Quem Somos
             </a>
-            <a href="./suporte.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="./suporte.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Suporte
             </a>
-            <a href="./blog.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="./blog.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Blog
             </a>
         </nav>
@@ -77,32 +86,32 @@
         </div>
 
         <!-- Mobile Toggle Button -->
-        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg bg-slate-900/80 border border-white/10 text-slate-200 focus:outline-none">
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-slate-200 rounded-full"></span>
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg surface border hairline t-main focus:outline-none">
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-accent rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-neutral rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-accent rounded-full"></span>
         </button>
     </div>
 
     <!-- Mobile Drawer Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-cyan-500/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden md:hidden band-dark border-b hairline px-6 py-6 transition-all duration-300">
         <nav class="flex flex-col gap-4">
-            <a href="./index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="./index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Home
             </a>
-            <a href="./servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="./servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Serviços
             </a>
-            <a href="./sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="./sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Quem Somos
             </a>
-            <a href="./suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="./suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Suporte
             </a>
-            <a href="./blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="./blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Blog
             </a>
-            <div class="pt-4 border-t border-white/10 mt-2">
+            <div class="pt-4 border-t hairline mt-2">
                 <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary w-full text-center justify-center py-3">
                     Falar com Especialista
                 </a>
@@ -113,55 +122,75 @@
 
 <style>
 .main-header.scrolled {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    background-color: rgba(3, 7, 18, 0.95);
-    box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
+    box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.85);
 }
 
-.mobile-toggle.active .bar:nth-child(1) {
+.main-header .container {
+    transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.main-header.scrolled .container {
+    height: 4rem;
+}
+
+/* Sublinhado vermelho da navegação */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red-bright), var(--red-soft));
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.dot-accent { background-color: var(--red-soft); }
+.dot-neutral { background-color: #e6e6e9; }
+
+#mobile-toggle.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
-.mobile-toggle.active .bar:nth-child(2) {
+#mobile-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
-.mobile-toggle.active .bar:nth-child(3) {
+#mobile-toggle.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
 </style>
 
 
-<main class="relative overflow-hidden bg-[#030712]">
+<main class="relative overflow-hidden">
 
-    <!-- HERO SECTION -->
-    <section class="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 tech-grid-bg overflow-hidden">
-        <!-- Ambient Glow Orbs -->
-        <div class="glow-orb glow-orb-cyan top-1/4 -left-24 opacity-60"></div>
-        <div class="glow-orb glow-orb-blue bottom-10 -right-24 opacity-60"></div>
-        
+    <!-- HERO — banda escura -->
+    <section class="band band-dark relative min-h-[88vh] flex items-center justify-center pt-28 pb-16 tech-grid-bg overflow-hidden">
+        <div class="glow-orb glow-orb-red top-1/4 -left-32 opacity-80"></div>
+        <div class="glow-orb glow-orb-graphite bottom-0 -right-32 opacity-70"></div>
+
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
-                
-                <!-- Authority Badge -->
+
                 <div class="inline-flex items-center">
                     <span class="tech-badge">
                         <span class="tech-badge-dot"></span>
-                        <span>25 Anos de Tradição e Inovação no Vale do Sinos</span>
+                        <span>25 anos no Vale do Sinos</span>
                     </span>
                 </div>
 
-                <!-- Main Headline -->
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-slate-100 tracking-tight leading-[1.15]">
+                <h1 class="text-4xl sm:text-5xl lg:text-[4.2rem] font-heading font-extrabold t-main tracking-tight">
                     Segurança, Estabilidade e <br class="hidden sm:inline">
-                    <span class="text-gradient-cyan">Inteligência em TI</span> para o Seu Negócio
+                    <span class="text-gradient-brand">Inteligência em TI</span> para o Seu Negócio
                 </h1>
 
-                <!-- Subtitle -->
-                <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+                <p class="text-lg sm:text-xl t-soft max-w-2xl mx-auto font-normal leading-relaxed">
                     Transformamos infraestrutura de tecnologia em vantagem competitiva proativa com foco em continuidade operacional e blindagem de dados.
                 </p>
 
-                <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                     <a href="#diagnostico" class="btn btn-primary w-full sm:w-auto text-base py-4 px-8">
                         <span>Solicitar Diagnóstico Gratuito</span>
@@ -174,23 +203,22 @@
                     </a>
                 </div>
 
-                <!-- Feature Pills -->
-                <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                <div class="pt-10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto text-left">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl surface border hairline">
                         <span class="text-xl">🛡️</span>
-                        <span class="text-xs font-medium text-slate-300">Proteção Anti-Ransomware</span>
+                        <span class="text-xs font-medium t-soft">Proteção Anti-Ransomware</span>
                     </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl surface border hairline">
                         <span class="text-xl">⚡</span>
-                        <span class="text-xs font-medium text-slate-300">Atendimento SLA Rápido</span>
+                        <span class="text-xs font-medium t-soft">Atendimento SLA Rápido</span>
                     </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl surface border hairline">
                         <span class="text-xl">🔒</span>
-                        <span class="text-xs font-medium text-slate-300">Conformidade LGPD</span>
+                        <span class="text-xs font-medium t-soft">Conformidade LGPD</span>
                     </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                    <div class="flex items-center gap-3 p-3.5 rounded-xl surface border hairline">
                         <span class="text-xl">🌐</span>
-                        <span class="text-xs font-medium text-slate-300">Monitoramento 24/7</span>
+                        <span class="text-xs font-medium t-soft">Monitoramento 24/7</span>
                     </div>
                 </div>
 
@@ -198,105 +226,94 @@
         </div>
     </section>
 
-    <!-- AUTHORITY COUNTER SECTION -->
-    <section class="counter-section py-16 bg-slate-950/80 border-y border-white/10 relative">
+    <!-- NÚMEROS — faixa escura de apoio -->
+    <section class="band band-dark band-dark-2 counter-section py-14 border-line-y">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 text-center">
-                
-                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10 text-center">
+
+                <div>
                     <div class="flex items-baseline justify-center">
-                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="25">0</span>
-                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                        <span class="counter-number text-4xl sm:text-5xl text-gradient-brand" data-target="25">0</span>
+                        <span class="text-2xl font-bold t-accent ml-1">+</span>
                     </div>
-                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Anos de Expertise</span>
+                    <span class="block text-[0.7rem] uppercase tracking-[0.14em] font-semibold t-muted mt-2">Anos de Expertise</span>
                 </div>
 
-                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                <div>
                     <div class="flex items-baseline justify-center">
-                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
-                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                        <span class="counter-number text-4xl sm:text-5xl text-gradient-brand" data-target="100">0</span>
+                        <span class="text-2xl font-bold t-accent ml-1">+</span>
                     </div>
-                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Clientes Ativos</span>
+                    <span class="block text-[0.7rem] uppercase tracking-[0.14em] font-semibold t-muted mt-2">Clientes Ativos</span>
                 </div>
 
-                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                <div>
                     <div class="flex items-baseline justify-center">
-                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="2000">0</span>
-                        <span class="text-2xl font-bold text-cyan-400 ml-1">+</span>
+                        <span class="counter-number text-4xl sm:text-5xl text-gradient-brand" data-target="2000">0</span>
+                        <span class="text-2xl font-bold t-accent ml-1">+</span>
                     </div>
-                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Usuários Protegidos</span>
+                    <span class="block text-[0.7rem] uppercase tracking-[0.14em] font-semibold t-muted mt-2">Usuários Protegidos</span>
                 </div>
 
-                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all">
+                <div>
                     <div class="flex items-baseline justify-center">
-                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="100">0</span>
-                        <span class="text-2xl font-bold text-cyan-400 ml-1">%</span>
+                        <span class="counter-number text-4xl sm:text-5xl text-gradient-brand" data-target="100">0</span>
+                        <span class="text-2xl font-bold t-accent ml-1">%</span>
                     </div>
-                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Segurança em Nuvem</span>
+                    <span class="block text-[0.7rem] uppercase tracking-[0.14em] font-semibold t-muted mt-2">Segurança em Nuvem</span>
                 </div>
 
-                <div class="glass-card bg-slate-900/40 p-6 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all col-span-2 lg:col-span-1">
+                <div class="col-span-2 lg:col-span-1">
                     <div class="flex items-baseline justify-center">
-                        <span class="counter-number text-4xl sm:text-5xl font-heading font-extrabold text-gradient-cyan" data-target="24">0</span>
-                        <span class="text-2xl font-bold text-cyan-400 ml-1">/7</span>
+                        <span class="counter-number text-4xl sm:text-5xl text-gradient-brand" data-target="24">0</span>
+                        <span class="text-2xl font-bold t-accent ml-1">/7</span>
                     </div>
-                    <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400 mt-2">Monitoramento NOC</span>
+                    <span class="block text-[0.7rem] uppercase tracking-[0.14em] font-semibold t-muted mt-2">Monitoramento NOC</span>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- VALUE TRIAD SECTION -->
-    <section class="py-24 relative">
-        <div class="glow-orb glow-orb-cyan top-1/3 left-10 opacity-30"></div>
-
+    <!-- TRÍADE DE VALOR — banda clara -->
+    <section class="band band-light">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="section-title text-gradient-cyan">Tríade de Valor ZRS</h2>
+
+            <div class="max-w-3xl mb-14 reveal rule-accent">
+                <h2 class="section-title">Tríade de Valor ZRS</h2>
                 <p class="section-subtitle">
                     Fundamentamos nossa governança em três pilares estratégicos para garantir alta disponibilidade e proteção contínua.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Pillar 1 -->
-                <div class="glass-card glass-card-glow reveal group">
-                    <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
-                        🛡️
-                    </div>
-                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div class="card reveal group">
+                    <div class="icon-tile mb-6">🛡️</div>
+                    <h3 class="text-xl font-heading font-bold t-main mb-3 g-hover-accent">
                         Segurança de Redes
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="t-muted text-sm leading-relaxed">
                         Ambientes corporativos blindados com Firewalls de Nova Geração (NGFW), inspeção profunda de pacotes e mitigação proativa de ameaças em tempo real.
                     </p>
                 </div>
 
-                <!-- Pillar 2 -->
-                <div class="glass-card glass-card-glow reveal group">
-                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
-                        🧠
-                    </div>
-                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-blue-300 transition-colors">
+                <div class="card reveal group">
+                    <div class="icon-tile mb-6">🧠</div>
+                    <h3 class="text-xl font-heading font-bold t-main mb-3 g-hover-accent">
                         Consultoria Estratégica
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="t-muted text-sm leading-relaxed">
                         Planejamento de arquitetura de TI escalável que transforma a tecnologia em vetor de crescimento, eliminando custos com gargalos técnicos.
                     </p>
                 </div>
 
-                <!-- Pillar 3 -->
-                <div class="glass-card glass-card-glow reveal group">
-                    <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-300 shadow-[0_0_20px_rgba(225,29,72,0.15)]">
-                        🚀
-                    </div>
-                    <h3 class="text-2xl font-heading font-bold text-slate-100 mb-3 group-hover:text-rose-300 transition-colors">
+                <div class="card reveal group">
+                    <div class="icon-tile mb-6">🚀</div>
+                    <h3 class="text-xl font-heading font-bold t-main mb-3 g-hover-accent">
                         Suporte Especializado
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="t-muted text-sm leading-relaxed">
                         Atendimento com SLA ágil e corpo técnico dedicado, focado em resolver ocorrências sem causar paradas na sua operação diária.
                     </p>
                 </div>
@@ -305,53 +322,54 @@
         </div>
     </section>
 
-    <!-- ROI & IMPACT SECTION -->
-    <section class="py-20 bg-slate-950/60 border-y border-white/5 relative">
+    <!-- ROI — banda escura -->
+    <section class="band band-dark relative overflow-hidden">
+        <div class="glow-orb glow-orb-red -bottom-40 -right-32 opacity-70"></div>
+
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
+
                 <div class="lg:col-span-7 space-y-6 reveal">
-                    <span class="tech-badge">Retorno Sobre Investimento</span>
-                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-slate-100">
-                        O Impacto Real de uma <span class="text-gradient-cyan">TI Gerenciada</span>
+                    <span class="tech-badge">Retorno sobre investimento</span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold t-main">
+                        O Impacto Real de uma <span class="text-gradient-brand">TI Gerenciada</span>
                     </h2>
-                    <p class="text-slate-300 text-base leading-relaxed">
-                        Não somos um centro de custos — somos parceiros na aceleração do seu negócio. Empresas que migram para nosso modelo preventivo registram:
+                    <p class="t-soft text-base leading-relaxed">
+                        Não somos um centro de custos. Somos parceiros na aceleração do seu negócio. Empresas que migram para nosso modelo preventivo registram:
                     </p>
-                    
-                    <ul class="space-y-4 pt-2">
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+
+                    <ul class="space-y-5 pt-2">
+                        <li class="flex items-start gap-4">
+                            <span class="w-7 h-7 rounded-md surface-2 border hairline t-accent flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
                             <div>
-                                <strong class="text-slate-100">Até 30% de redução de custos operacionais:</strong>
-                                <span class="text-slate-400 text-sm block">Eliminação de paradas desnecessárias e retrabalho de equipe.</span>
+                                <strong class="t-main">Até 30% de redução de custos operacionais:</strong>
+                                <span class="t-muted text-sm block">Eliminação de paradas desnecessárias e retrabalho de equipe.</span>
                             </div>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                        <li class="flex items-start gap-4">
+                            <span class="w-7 h-7 rounded-md surface-2 border hairline t-accent flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
                             <div>
-                                <strong class="text-slate-100">Zero Inatividade Crítica:</strong>
-                                <span class="text-slate-400 text-sm block">Planos de contingência e backups imutáveis redundantes.</span>
+                                <strong class="t-main">Zero inatividade crítica:</strong>
+                                <span class="t-muted text-sm block">Planos de contingência e backups imutáveis redundantes.</span>
                             </div>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
+                        <li class="flex items-start gap-4">
+                            <span class="w-7 h-7 rounded-md surface-2 border hairline t-accent flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">✓</span>
                             <div>
-                                <strong class="text-slate-100">Conformidade Total com LGPD:</strong>
-                                <span class="text-slate-400 text-sm block">Blindagem jurídica e técnica contra vazamento de dados confidenciais.</span>
+                                <strong class="t-main">Conformidade total com a LGPD:</strong>
+                                <span class="t-muted text-sm block">Blindagem jurídica e técnica contra vazamento de dados confidenciais.</span>
                             </div>
                         </li>
                     </ul>
                 </div>
 
                 <div class="lg:col-span-5 reveal">
-                    <div class="glass-card bg-slate-900/80 border-cyan-500/30 p-8 text-center space-y-4 relative overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.15)]">
-                        <div class="glow-orb glow-orb-cyan -top-20 -right-20 opacity-40"></div>
-                        <span class="text-xs uppercase font-heading font-semibold text-cyan-400 tracking-wider">Média de Economia</span>
-                        <div class="text-6xl sm:text-7xl font-heading font-black text-gradient-cyan leading-none">
+                    <div class="card p-8 text-center space-y-4 relative overflow-hidden">
+                        <span class="text-[0.7rem] uppercase font-heading font-bold t-accent tracking-[0.14em]">Média de Economia</span>
+                        <div class="text-6xl sm:text-7xl font-heading font-black text-gradient-brand leading-none">
                             30%
                         </div>
-                        <div class="text-sm font-medium text-slate-300">
+                        <div class="text-sm font-medium t-soft">
                             Otimização no Custo Total de Propriedade (TCO) de Tecnologia
                         </div>
                         <div class="pt-4">
@@ -366,63 +384,59 @@
         </div>
     </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section class="py-24 relative">
+    <!-- METODOLOGIA — banda clara -->
+    <section class="band band-light">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="section-title text-gradient-cyan">Nossa Metodologia de Gestão</h2>
+
+            <div class="max-w-3xl mb-14 reveal rule-accent">
+                <h2 class="section-title">Nossa Metodologia de Gestão</h2>
                 <p class="section-subtitle">
                     Um fluxo contínuo de 4 etapas desenhado para garantir previsibilidade, segurança e máxima performance.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Step 01 -->
-                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-3xl">🔍</span>
-                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">01</span>
+
+                <div class="card p-6 reveal group">
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-2xl">🔍</span>
+                        <span class="text-3xl font-heading font-black t-step">01</span>
                     </div>
-                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Avaliação</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
+                    <h4 class="text-lg font-heading font-bold t-main mb-2">Avaliação</h4>
+                    <p class="t-muted text-xs leading-relaxed">
                         Diagnóstico completo da infraestrutura, mapeando riscos de segurança e gargalos de velocidade.
                     </p>
                 </div>
 
-                <!-- Step 02 -->
-                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-3xl">📐</span>
-                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">02</span>
+                <div class="card p-6 reveal group">
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-2xl">📐</span>
+                        <span class="text-3xl font-heading font-black t-step">02</span>
                     </div>
-                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Planejamento</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
+                    <h4 class="text-lg font-heading font-bold t-main mb-2">Planejamento</h4>
+                    <p class="t-muted text-xs leading-relaxed">
                         Desenho da arquitetura de solução sob medida com priorização de dados críticos.
                     </p>
                 </div>
 
-                <!-- Step 03 -->
-                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-3xl">⚙️</span>
-                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">03</span>
+                <div class="card p-6 reveal group">
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-2xl">⚙️</span>
+                        <span class="text-3xl font-heading font-black t-step">03</span>
                     </div>
-                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Implementação</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Execução técnica especializada com foco em zero paralisação operacional (zero downtime).
+                    <h4 class="text-lg font-heading font-bold t-main mb-2">Implementação</h4>
+                    <p class="t-muted text-xs leading-relaxed">
+                        Execução técnica especializada com foco em zero paralisação operacional.
                     </p>
                 </div>
 
-                <!-- Step 04 -->
-                <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 reveal group">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-3xl">📈</span>
-                        <span class="text-3xl font-heading font-black text-slate-700 group-hover:text-cyan-400 transition-colors">04</span>
+                <div class="card p-6 reveal group">
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-2xl">📈</span>
+                        <span class="text-3xl font-heading font-black t-step">04</span>
                     </div>
-                    <h4 class="text-xl font-heading font-bold text-slate-100 mb-2">Gestão Contínua</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">
+                    <h4 class="text-lg font-heading font-bold t-main mb-2">Gestão Contínua</h4>
+                    <p class="t-muted text-xs leading-relaxed">
                         Monitoramento 24/7, relatórios periódicos e atualizações contínuas de segurança.
                     </p>
                 </div>
@@ -431,66 +445,66 @@
         </div>
     </section>
 
-    <!-- BLOG PREVIEW SECTION -->
-    <section class="py-20 bg-slate-950/40 border-t border-white/5">
+    <!-- BLOG — banda clara sólida -->
+    <section class="band band-light band-light-plain border-line-t">
         <div class="container mx-auto px-4 lg:px-8">
-            
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
-                <div>
-                    <span class="tech-badge mb-3">Conhecimento Técnico</span>
-                    <h2 class="section-title text-left text-gradient-cyan mb-0">Artigos e Novidades</h2>
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal gap-6">
+                <div class="rule-accent">
+                    <span class="tech-badge">Conhecimento técnico</span>
+                    <h2 class="section-title mb-0 mt-3">Artigos e Novidades</h2>
                 </div>
-                <a href="./blog.html" class="btn btn-outline text-xs py-2.5 px-5 mt-4 md:mt-0">
+                <a href="./blog.html" class="btn btn-outline text-sm py-2.5 px-5 shrink-0">
                     Ver Todos os Artigos →
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                     
-                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                        <div class="card p-6 flex flex-col justify-between reveal group">
                             <div>
-                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
-                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                <span class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] t-accent block mb-3">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold t-main mb-3 line-clamp-2 g-hover-accent">
                                     A Importância do Firewall de Nova Geração (NGFW)
                                 </h3>
-                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                <p class="t-muted text-sm leading-relaxed line-clamp-3 mb-6">
                                     Saiba como bloquear ameaças avançadas antes mesmo delas atingirem seus servidores.
                                 </p>
                             </div>
-                            <a href="./blog/a-importancia-do-firewall-de-nova-geracao.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                            <a href="./blog/a-importancia-do-firewall-de-nova-geracao.html" class="btn-link pt-4 border-line-t">
                                 <span>Ler artigo completo</span>
                                 <span>→</span>
                             </a>
                         </div>
                     
-                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                        <div class="card p-6 flex flex-col justify-between reveal group">
                             <div>
-                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
-                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                <span class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] t-accent block mb-3">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold t-main mb-3 line-clamp-2 g-hover-accent">
                                     Por que o Wi-Fi 6 é o novo padrão para escritórios
                                 </h3>
-                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                <p class="t-muted text-sm leading-relaxed line-clamp-3 mb-6">
                                     Mais velocidade, menos latência e suporte a uma densidade enorme de dispositivos.
                                 </p>
                             </div>
-                            <a href="./blog/por-que-o-wifi-6-e-o-novo-padrao.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                            <a href="./blog/por-que-o-wifi-6-e-o-novo-padrao.html" class="btn-link pt-4 border-line-t">
                                 <span>Ler artigo completo</span>
                                 <span>→</span>
                             </a>
                         </div>
                     
-                        <div class="glass-card bg-slate-900/50 p-6 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-300 reveal">
+                        <div class="card p-6 flex flex-col justify-between reveal group">
                             <div>
-                                <span class="text-xs font-semibold text-cyan-400 block mb-2">07 Abr 2026</span>
-                                <h3 class="text-lg font-heading font-bold text-slate-100 mb-3 line-clamp-2 hover:text-cyan-300 transition-colors">
+                                <span class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] t-accent block mb-3">07 Abr 2026</span>
+                                <h3 class="text-lg font-heading font-bold t-main mb-3 line-clamp-2 g-hover-accent">
                                     LGPD na prática: Como adequar o seu TI
                                 </h3>
-                                <p class="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-6">
+                                <p class="t-muted text-sm leading-relaxed line-clamp-3 mb-6">
                                     Criptografia, controle de acesso e políticas restritas que sua empresa precisa ter.
                                 </p>
                             </div>
-                            <a href="./blog/lgpd-na-pratica-como-adequar.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors pt-4 border-t border-white/5">
+                            <a href="./blog/lgpd-na-pratica-como-adequar.html" class="btn-link pt-4 border-line-t">
                                 <span>Ler artigo completo</span>
                                 <span>→</span>
                             </a>
@@ -502,17 +516,15 @@
         </div>
     </section>
 
-    <!-- FINAL CTA SECTION -->
-    <section id="diagnostico" class="py-24 relative overflow-hidden">
-        <div class="glow-orb glow-orb-cyan top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
-        
+    <!-- CTA FINAL — banda vermelha institucional -->
+    <section id="diagnostico" class="band band-red relative overflow-hidden">
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            <div class="glass-card bg-slate-900/90 border-cyan-500/40 p-10 sm:p-16 rounded-3xl text-center max-w-4xl mx-auto space-y-6 shadow-[0_0_60px_rgba(6,182,212,0.2)] reveal">
-                <span class="tech-badge">Diagnóstico Gratuito</span>
-                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-slate-100 leading-tight">
+            <div class="max-w-4xl mx-auto text-center space-y-6 reveal">
+                <span class="tech-badge">Diagnóstico gratuito</span>
+                <h2 class="text-3xl sm:text-5xl font-heading font-extrabold t-main leading-tight">
                     Pronto para Elevar o Nível da Sua TI?
                 </h2>
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                <p class="t-soft text-base sm:text-lg max-w-2xl mx-auto">
                     Garanta a estabilidade e proteção que seu negócio necessita. Agende uma consultoria sem compromisso com nossos especialistas.
                 </p>
                 <div class="pt-4 flex justify-center">
@@ -527,9 +539,9 @@
 
 </main>
 
-<footer class="main-footer bg-[#030712] border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
-    <!-- Ambient Glow behind Footer -->
-    <div class="glow-orb glow-orb-blue bottom-0 left-1/2 -translate-x-1/2 opacity-30"></div>
+<footer class="main-footer band band-dark border-t hairline pt-16 pb-8 relative overflow-hidden">
+    <!-- Halo vermelho discreto -->
+    <div class="glow-orb glow-orb-red -bottom-56 left-1/2 -translate-x-1/2 opacity-60"></div>
 
     <div class="container mx-auto px-4 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -537,13 +549,13 @@
             <!-- Col 1: Brand Info -->
             <div class="space-y-4">
                 <a href="./index.html" class="inline-block">
-                    <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-12 w-auto filter drop-shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+                    <img src="./assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-12 w-auto">
                 </a>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                <p class="t-muted text-sm leading-relaxed max-w-sm">
                     Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos há mais de 25 anos.
                 </p>
                 <div class="flex items-center gap-3 pt-2">
-                    <a href="https://instagram.com/zrs_informatica" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300">
+                    <a href="https://instagram.com/zrs_informatica" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full surface border hairline flex items-center justify-center t-muted hover-accent hover-line-accent hover-surface transition-all duration-300">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 448 512">
                             <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
                         </svg>
@@ -553,88 +565,88 @@
 
             <!-- Col 2: Navigation Links -->
             <div>
-                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Navegação</h4>
-                <ul class="space-y-2.5 text-sm text-slate-400">
-                    <li><a href="./index.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Home</a></li>
-                    <li><a href="./servicos.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Serviços</a></li>
-                    <li><a href="./sobre.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Quem Somos</a></li>
-                    <li><a href="./suporte.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Suporte & Planos</a></li>
-                    <li><a href="./blog.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Blog Técnico</a></li>
+                <h4 class="font-heading font-semibold t-main text-base mb-4 tracking-wide uppercase text-xs t-accent">Navegação</h4>
+                <ul class="space-y-2.5 text-sm t-muted">
+                    <li><a href="./index.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Home</a></li>
+                    <li><a href="./servicos.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Serviços</a></li>
+                    <li><a href="./sobre.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Quem Somos</a></li>
+                    <li><a href="./suporte.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Suporte & Planos</a></li>
+                    <li><a href="./blog.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Blog Técnico</a></li>
                 </ul>
             </div>
 
             <!-- Col 3: Contact Info -->
             <div>
-                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Contato & Atendimento</h4>
-                <ul class="space-y-3 text-sm text-slate-400">
+                <h4 class="font-heading font-semibold t-main text-base mb-4 tracking-wide uppercase text-xs t-accent">Contato & Atendimento</h4>
+                <ul class="space-y-3 text-sm t-muted">
                     <li class="flex items-center gap-2">
-                        <span class="text-cyan-400">📞</span>
-                        <a href="https://wa.me/5551994374526" target="_blank" class="hover:text-slate-200 transition-colors">(51) 99437-4526</a>
+                        <span class="t-accent">📞</span>
+                        <a href="https://wa.me/5551994374526" target="_blank" class="hover-main transition-colors">(51) 99437-4526</a>
                     </li>
                     <li class="flex items-center gap-2">
-                        <span class="text-cyan-400">✉️</span>
-                        <a href="mailto:contato@zrsinformatica.com.br" class="hover:text-slate-200 transition-colors">contato@zrsinformatica.com.br</a>
+                        <span class="t-accent">✉️</span>
+                        <a href="mailto:contato@zrsinformatica.com.br" class="hover-main transition-colors">contato@zrsinformatica.com.br</a>
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="text-cyan-400 mt-0.5">📍</span>
-                        <span>Rua Santo Ângelo, 506<br>Bairro Guarani, Novo Hamburgo - RS</span>
+                        <span class="t-accent mt-0.5">📍</span>
+                        <span>Rua Santo Ângelo, 506<br>Bairro Guarani, Novo Hamburgo, RS</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Col 4: Trust Badge / Fast Support -->
-            <div class="glass-card bg-slate-900/40 p-5 rounded-2xl border border-white/5 space-y-3">
+            <div class="card p-5 rounded-2xl border hairline space-y-3">
                 <div class="tech-badge text-[10px] py-1 px-3">
                     <span class="tech-badge-dot"></span>
                     <span>Monitoramento NOC 24/7</span>
                 </div>
-                <h5 class="font-heading font-semibold text-slate-200 text-sm">Suporte Ágil e Estratégico</h5>
-                <p class="text-xs text-slate-400 leading-relaxed">
+                <h5 class="font-heading font-semibold t-main text-sm">Suporte Ágil e Estratégico</h5>
+                <p class="text-xs t-muted leading-relaxed">
                     Sua empresa protegida com resposta técnica priorizada e zero paralisações.
                 </p>
             </div>
         </div>
 
         <!-- Footer Bottom -->
-        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-            <p>© Zrs Informática - Todos os direitos reservados.</p>
-            <p class="font-mono text-slate-600">CNPJ: 53.559.069/0001-16</p>
+        <div class="pt-8 border-t hairline flex flex-col md:flex-row items-center justify-between text-xs t-muted gap-4">
+            <p>© ZRS Informática. Todos os direitos reservados.</p>
+            <p class="font-mono t-muted">CNPJ: 53.559.069/0001-16</p>
         </div>
     </div>
 </footer>
 
 <!-- Floating Controls (WhatsApp + Theme) -->
-<div class="floating-controls fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+<div class="floating-controls tokens-dark fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
     <!-- Theme Toggle -->
-    <button id="theme-toggle" aria-label="Alternar Tema" class="w-12 h-12 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl shadow-lg hover:scale-110 hover:border-cyan-400 transition-all duration-300 backdrop-blur-xl">
+    <button id="theme-toggle" aria-label="Alternar Tema" class="w-12 h-12 rounded-full surface border hairline t-accent flex items-center justify-center text-xl shadow-lg hover:scale-110 hover-line-accent transition-all duration-300 backdrop-blur-xl">
         🌙
     </button>
     
     <!-- WhatsApp Floating Container -->
     <div class="whatsapp-float relative">
         <!-- Interactive WhatsApp Menu Popup -->
-        <div id="whatsapp-menu" class="hidden absolute bottom-16 right-0 w-72 bg-slate-950/95 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl p-4 shadow-2xl space-y-2 text-slate-200 z-50">
-            <div class="text-xs font-heading uppercase tracking-wider text-cyan-400 font-semibold px-2 pb-1 border-b border-white/10">
+        <div id="whatsapp-menu" class="hidden absolute bottom-16 right-0 w-72 surface backdrop-blur-2xl border hairline rounded-2xl p-4 shadow-2xl space-y-2 t-main z-50">
+            <div class="text-xs font-heading uppercase tracking-wider t-accent font-semibold px-2 pb-1 border-b hairline">
                 Como podemos ajudar?
             </div>
-            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" target="_blank" class="flex items-center justify-between p-3 rounded-xl surface hover-surface hover-line-accent border hairline transition-all text-xs font-medium group">
                 <div class="flex flex-col">
-                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Comercial & Diagnóstico</span>
-                    <span class="text-[11px] text-slate-400">Avaliação gratuita de TI</span>
+                    <span class="t-main font-semibold g-hover-accent">Comercial & Diagnóstico</span>
+                    <span class="text-[11px] t-muted">Avaliação gratuita de TI</span>
                 </div>
                 <span class="text-lg">💼</span>
             </a>
-            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" target="_blank" class="flex items-center justify-between p-3 rounded-xl surface hover-surface hover-line-accent border hairline transition-all text-xs font-medium group">
                 <div class="flex flex-col">
-                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Suporte Técnico</span>
-                    <span class="text-[11px] text-slate-400">Atendimento a chamados</span>
+                    <span class="t-main font-semibold g-hover-accent">Suporte Técnico</span>
+                    <span class="text-[11px] t-muted">Atendimento a chamados</span>
                 </div>
                 <span class="text-lg">🛠️</span>
             </a>
         </div>
 
         <!-- WhatsApp Button -->
-        <button id="wa-toggle" aria-label="WhatsApp ZRS Informática" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110">
+        <button id="wa-toggle" aria-label="WhatsApp ZRS Informática" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
             <!-- Pulsing Aura -->
             <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30 pointer-events-none"></span>
             

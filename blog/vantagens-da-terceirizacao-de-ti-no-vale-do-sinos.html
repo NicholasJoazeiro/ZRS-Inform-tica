@@ -9,18 +9,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              cyber: {
-                bg: '#030712',
-                card: 'rgba(15, 23, 42, 0.65)',
-                cyan: '#00f0ff',
-                cyanGlow: '#06b6d4',
-                blue: '#3b82f6',
-                red: '#e11d48',
-                slate: '#0f172a'
+              zrs: {
+                red: '#8b0000',
+                redBright: '#b30000',
+                redDeep: '#5c0000',
+                redSoft: '#e05555',
+                black: '#0b0b0d',
+                graphite: '#141417',
+                grey: '#6a6a73',
+                greyLight: '#f4f4f5'
               }
             },
             fontFamily: {
@@ -32,36 +32,45 @@
       }
     </script>
     
+    <!-- Tema aplicado antes do primeiro paint, para não piscar nem travar transições -->
+    <script>
+      (function () {
+        var t = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        if (t === 'dark') document.documentElement.classList.add('dark');
+      })();
+    </script>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <meta name="description" content="Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos. 25 anos de expertise em infraestrutura, redes e consultoria.">
     <link rel="icon" type="image/png" href="../assets/images/icone.png">
 </head>
-<body class="bg-[#030712] text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+<body class="antialiased">
 
-<header class="main-header fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+<header class="main-header band-dark fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b hairline">
     <div class="container mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
         
         <!-- Logo -->
         <a href="../index.html" class="flex items-center gap-3 group">
-            <img src="../assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(0,240,255,0.25)]">
+            <img src="../assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-11 w-auto transition-transform duration-300 group-hover:scale-105">
         </a>
         
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
-            <a href="../index.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="../index.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Home
             </a>
-            <a href="../servicos.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="../servicos.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Serviços
             </a>
-            <a href="../sobre.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="../sobre.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Quem Somos
             </a>
-            <a href="../suporte.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="../suporte.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Suporte
             </a>
-            <a href="../blog.html" class="nav-link font-heading font-medium text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-200 relative py-1">
+            <a href="../blog.html" class="nav-link font-heading font-medium text-sm t-soft hover-accent transition-colors duration-200 relative py-1">
                 Blog
             </a>
         </nav>
@@ -77,32 +86,32 @@
         </div>
 
         <!-- Mobile Toggle Button -->
-        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg bg-slate-900/80 border border-white/10 text-slate-200 focus:outline-none">
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-slate-200 rounded-full"></span>
-            <span class="bar transition-all duration-300 w-full h-0.5 bg-cyan-400 rounded-full"></span>
+        <button id="mobile-toggle" aria-label="Abrir Menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 p-2 rounded-lg surface border hairline t-main focus:outline-none">
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-accent rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-neutral rounded-full"></span>
+            <span class="bar transition-all duration-300 w-full h-0.5 dot-accent rounded-full"></span>
         </button>
     </div>
 
     <!-- Mobile Drawer Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#030712]/95 backdrop-blur-2xl border-b border-cyan-500/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden md:hidden band-dark border-b hairline px-6 py-6 transition-all duration-300">
         <nav class="flex flex-col gap-4">
-            <a href="../index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="../index.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Home
             </a>
-            <a href="../servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="../servicos.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Serviços
             </a>
-            <a href="../sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="../sobre.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Quem Somos
             </a>
-            <a href="../suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="../suporte.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Suporte
             </a>
-            <a href="../blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/20">
+            <a href="../blog.html" class="mobile-nav-item py-3 px-4 rounded-xl text-base font-heading font-semibold t-main hover-surface hover-accent transition-all border border-transparent hover-line-accent">
                 Blog
             </a>
-            <div class="pt-4 border-t border-white/10 mt-2">
+            <div class="pt-4 border-t hairline mt-2">
                 <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary w-full text-center justify-center py-3">
                     Falar com Especialista
                 </a>
@@ -113,82 +122,133 @@
 
 <style>
 .main-header.scrolled {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    background-color: rgba(3, 7, 18, 0.95);
-    box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
+    box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.85);
 }
 
-.mobile-toggle.active .bar:nth-child(1) {
+.main-header .container {
+    transition: height 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.main-header.scrolled .container {
+    height: 4rem;
+}
+
+/* Sublinhado vermelho da navegação */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red-bright), var(--red-soft));
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.dot-accent { background-color: var(--red-soft); }
+.dot-neutral { background-color: #e6e6e9; }
+
+#mobile-toggle.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
-.mobile-toggle.active .bar:nth-child(2) {
+#mobile-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
-.mobile-toggle.active .bar:nth-child(3) {
+#mobile-toggle.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
 </style>
 
 
-<main class="relative overflow-hidden bg-[#030712] pt-28 pb-24 min-h-screen">
-    <!-- Glow Background -->
-    <div class="glow-orb glow-orb-cyan top-20 left-1/2 -translate-x-1/2 opacity-30"></div>
+<main class="relative overflow-hidden">
 
-    <article class="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10 reveal">
-        
-        <!-- Header -->
-        <header class="mb-8 space-y-4">
-            <a href="../blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
-                <span>← Voltar para o Blog</span>
+    <!-- CABEÇALHO DO ARTIGO — banda escura -->
+    <section class="band band-dark pt-32 pb-14 relative overflow-hidden tech-grid-bg">
+        <div class="glow-orb glow-orb-red -top-32 left-1/2 -translate-x-1/2 opacity-70"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10 space-y-5 reveal">
+            <a href="../blog.html" class="btn-link">
+                <span>←</span>
+                <span>Voltar para o Blog</span>
             </a>
-            <div class="text-xs font-semibold text-slate-400">02 Abr 2026</div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-100 leading-tight">
+            <div class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] t-muted">02 Abr 2026</div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold t-main leading-tight">
                 Vantagens da Terceirização de TI no Vale do Sinos
             </h1>
-        </header>
-
-        <!-- Content Glass Card -->
-        <div class="glass-card bg-slate-900/80 p-6 sm:p-10 rounded-3xl border border-white/10 text-slate-200 text-base leading-relaxed space-y-6 shadow-2xl">
-            <p>Profissionalizar a TI muitas vezes significa parar de "apagar incêndios". O modelo de outsourcing, ou terceirização, permite que indústrias e comércios no Vale do Sinos transfiram a responsabilidade de gerir redes e suporte técnico para especialistas focados em resultados contínuos. As vantagens incluem <strong>redução de custos operacionais (até 30%)</strong>, monitoramento 24/7 para identificar falhas antes que elas parem a sua equipe e o cumprimento total das regulamentações complexas da <strong>LGPD</strong>, garantindo mais previsibilidade financeira do que um suporte pontual "quebra-conserta".</p>
         </div>
+    </section>
 
-        <!-- Post CTA -->
-        <div class="mt-12 text-center glass-card bg-slate-900/60 p-8 rounded-3xl border border-cyan-500/30 space-y-4">
-            <h3 class="text-2xl font-heading font-bold text-slate-100">
-                Precisa de ajuda com a TI da sua empresa?
-            </h3>
-            <p class="text-slate-300 text-sm max-w-xl mx-auto">
-                Entre em contato com nossos especialistas e solicite um diagnóstico de infraestrutura sem custos.
-            </p>
-            <div class="pt-2">
-                <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-sm py-3 px-8">
-                    Falar com Consultor ZRS
-                </a>
+    <!-- CORPO DO ARTIGO — banda clara para leitura -->
+    <section class="band band-light band-light-plain py-16">
+        <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+
+            <div class="post-content t-main text-base leading-relaxed reveal">
+                <p>Profissionalizar a TI muitas vezes significa parar de "apagar incêndios". O modelo de outsourcing, ou terceirização, permite que indústrias e comércios no Vale do Sinos transfiram a responsabilidade de gerir redes e suporte técnico para especialistas focados em resultados contínuos. As vantagens incluem <strong>redução de custos operacionais (até 30%)</strong>, monitoramento 24/7 para identificar falhas antes que elas parem a sua equipe e o cumprimento total das regulamentações complexas da <strong>LGPD</strong>, garantindo mais previsibilidade financeira do que um suporte pontual "quebra-conserta".</p>
             </div>
-        </div>
 
-    </article>
+            <div class="mt-14 card p-8 text-center space-y-4 reveal">
+                <h3 class="text-2xl font-heading font-bold t-main">
+                    Precisa de ajuda com a TI da sua empresa?
+                </h3>
+                <p class="t-muted text-sm max-w-xl mx-auto">
+                    Entre em contato com nossos especialistas e solicite um diagnóstico de infraestrutura sem custos.
+                </p>
+                <div class="pt-2 flex justify-center">
+                    <a href="https://wa.me/5551994374526" target="_blank" class="btn btn-primary text-sm py-3 px-8">
+                        Falar com Consultor ZRS
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 </main>
 
 <style>
-.glass-card p {
-    margin-bottom: 1.25rem;
-    color: #cbd5e1;
-    line-height: 1.8;
+.post-content {
+    font-size: 1.06rem;
 }
-.glass-card strong {
-    color: #00f0ff;
-    font-weight: 600;
+.post-content p {
+    margin-bottom: 1.4rem;
+    color: var(--c-soft);
+    line-height: 1.85;
 }
-.glass-card em {
-    color: #94a3b8;
+.post-content strong {
+    color: var(--c-accent);
+    font-weight: 700;
+}
+.post-content em {
+    color: var(--c-muted);
+}
+.post-content h2,
+.post-content h3 {
+    color: var(--c-main);
+    margin: 2.25rem 0 1rem;
+}
+.post-content ul,
+.post-content ol {
+    margin: 0 0 1.4rem 1.25rem;
+    color: var(--c-soft);
+}
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+.post-content a {
+    color: var(--c-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 </style>
 
-<footer class="main-footer bg-[#030712] border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
-    <!-- Ambient Glow behind Footer -->
-    <div class="glow-orb glow-orb-blue bottom-0 left-1/2 -translate-x-1/2 opacity-30"></div>
+<footer class="main-footer band band-dark border-t hairline pt-16 pb-8 relative overflow-hidden">
+    <!-- Halo vermelho discreto -->
+    <div class="glow-orb glow-orb-red -bottom-56 left-1/2 -translate-x-1/2 opacity-60"></div>
 
     <div class="container mx-auto px-4 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -196,13 +256,13 @@
             <!-- Col 1: Brand Info -->
             <div class="space-y-4">
                 <a href="../index.html" class="inline-block">
-                    <img src="../assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-12 w-auto filter drop-shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+                    <img src="../assets/images/logozrs.png" alt="ZRS Informática Logo" class="h-12 w-auto">
                 </a>
-                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                <p class="t-muted text-sm leading-relaxed max-w-sm">
                     Segurança, Estabilidade e Inteligência em TI para o Vale do Sinos há mais de 25 anos.
                 </p>
                 <div class="flex items-center gap-3 pt-2">
-                    <a href="https://instagram.com/zrs_informatica" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full bg-slate-900/80 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300">
+                    <a href="https://instagram.com/zrs_informatica" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-full surface border hairline flex items-center justify-center t-muted hover-accent hover-line-accent hover-surface transition-all duration-300">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 448 512">
                             <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
                         </svg>
@@ -212,88 +272,88 @@
 
             <!-- Col 2: Navigation Links -->
             <div>
-                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Navegação</h4>
-                <ul class="space-y-2.5 text-sm text-slate-400">
-                    <li><a href="../index.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Home</a></li>
-                    <li><a href="../servicos.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Serviços</a></li>
-                    <li><a href="../sobre.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Quem Somos</a></li>
-                    <li><a href="../suporte.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Suporte & Planos</a></li>
-                    <li><a href="../blog.html" class="hover:text-cyan-400 transition-colors inline-block hover:translate-x-1 duration-200">Blog Técnico</a></li>
+                <h4 class="font-heading font-semibold t-main text-base mb-4 tracking-wide uppercase text-xs t-accent">Navegação</h4>
+                <ul class="space-y-2.5 text-sm t-muted">
+                    <li><a href="../index.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Home</a></li>
+                    <li><a href="../servicos.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Serviços</a></li>
+                    <li><a href="../sobre.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Quem Somos</a></li>
+                    <li><a href="../suporte.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Suporte & Planos</a></li>
+                    <li><a href="../blog.html" class="hover-accent transition-colors inline-block hover:translate-x-1 duration-200">Blog Técnico</a></li>
                 </ul>
             </div>
 
             <!-- Col 3: Contact Info -->
             <div>
-                <h4 class="font-heading font-semibold text-slate-100 text-base mb-4 tracking-wide uppercase text-xs text-cyan-400">Contato & Atendimento</h4>
-                <ul class="space-y-3 text-sm text-slate-400">
+                <h4 class="font-heading font-semibold t-main text-base mb-4 tracking-wide uppercase text-xs t-accent">Contato & Atendimento</h4>
+                <ul class="space-y-3 text-sm t-muted">
                     <li class="flex items-center gap-2">
-                        <span class="text-cyan-400">📞</span>
-                        <a href="https://wa.me/5551994374526" target="_blank" class="hover:text-slate-200 transition-colors">(51) 99437-4526</a>
+                        <span class="t-accent">📞</span>
+                        <a href="https://wa.me/5551994374526" target="_blank" class="hover-main transition-colors">(51) 99437-4526</a>
                     </li>
                     <li class="flex items-center gap-2">
-                        <span class="text-cyan-400">✉️</span>
-                        <a href="mailto:contato@zrsinformatica.com.br" class="hover:text-slate-200 transition-colors">contato@zrsinformatica.com.br</a>
+                        <span class="t-accent">✉️</span>
+                        <a href="mailto:contato@zrsinformatica.com.br" class="hover-main transition-colors">contato@zrsinformatica.com.br</a>
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="text-cyan-400 mt-0.5">📍</span>
-                        <span>Rua Santo Ângelo, 506<br>Bairro Guarani, Novo Hamburgo - RS</span>
+                        <span class="t-accent mt-0.5">📍</span>
+                        <span>Rua Santo Ângelo, 506<br>Bairro Guarani, Novo Hamburgo, RS</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Col 4: Trust Badge / Fast Support -->
-            <div class="glass-card bg-slate-900/40 p-5 rounded-2xl border border-white/5 space-y-3">
+            <div class="card p-5 rounded-2xl border hairline space-y-3">
                 <div class="tech-badge text-[10px] py-1 px-3">
                     <span class="tech-badge-dot"></span>
                     <span>Monitoramento NOC 24/7</span>
                 </div>
-                <h5 class="font-heading font-semibold text-slate-200 text-sm">Suporte Ágil e Estratégico</h5>
-                <p class="text-xs text-slate-400 leading-relaxed">
+                <h5 class="font-heading font-semibold t-main text-sm">Suporte Ágil e Estratégico</h5>
+                <p class="text-xs t-muted leading-relaxed">
                     Sua empresa protegida com resposta técnica priorizada e zero paralisações.
                 </p>
             </div>
         </div>
 
         <!-- Footer Bottom -->
-        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-            <p>© Zrs Informática - Todos os direitos reservados.</p>
-            <p class="font-mono text-slate-600">CNPJ: 53.559.069/0001-16</p>
+        <div class="pt-8 border-t hairline flex flex-col md:flex-row items-center justify-between text-xs t-muted gap-4">
+            <p>© ZRS Informática. Todos os direitos reservados.</p>
+            <p class="font-mono t-muted">CNPJ: 53.559.069/0001-16</p>
         </div>
     </div>
 </footer>
 
 <!-- Floating Controls (WhatsApp + Theme) -->
-<div class="floating-controls fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+<div class="floating-controls tokens-dark fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
     <!-- Theme Toggle -->
-    <button id="theme-toggle" aria-label="Alternar Tema" class="w-12 h-12 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl shadow-lg hover:scale-110 hover:border-cyan-400 transition-all duration-300 backdrop-blur-xl">
+    <button id="theme-toggle" aria-label="Alternar Tema" class="w-12 h-12 rounded-full surface border hairline t-accent flex items-center justify-center text-xl shadow-lg hover:scale-110 hover-line-accent transition-all duration-300 backdrop-blur-xl">
         🌙
     </button>
     
     <!-- WhatsApp Floating Container -->
     <div class="whatsapp-float relative">
         <!-- Interactive WhatsApp Menu Popup -->
-        <div id="whatsapp-menu" class="hidden absolute bottom-16 right-0 w-72 bg-slate-950/95 backdrop-blur-2xl border border-cyan-500/30 rounded-2xl p-4 shadow-2xl space-y-2 text-slate-200 z-50">
-            <div class="text-xs font-heading uppercase tracking-wider text-cyan-400 font-semibold px-2 pb-1 border-b border-white/10">
+        <div id="whatsapp-menu" class="hidden absolute bottom-16 right-0 w-72 surface backdrop-blur-2xl border hairline rounded-2xl p-4 shadow-2xl space-y-2 t-main z-50">
+            <div class="text-xs font-heading uppercase tracking-wider t-accent font-semibold px-2 pb-1 border-b hairline">
                 Como podemos ajudar?
             </div>
-            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+            <a href="https://wa.me/5551994374526?text=Olá,%20gostaria%20de%20um%20diagnóstico%20de%20infraestrutura" target="_blank" class="flex items-center justify-between p-3 rounded-xl surface hover-surface hover-line-accent border hairline transition-all text-xs font-medium group">
                 <div class="flex flex-col">
-                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Comercial & Diagnóstico</span>
-                    <span class="text-[11px] text-slate-400">Avaliação gratuita de TI</span>
+                    <span class="t-main font-semibold g-hover-accent">Comercial & Diagnóstico</span>
+                    <span class="text-[11px] t-muted">Avaliação gratuita de TI</span>
                 </div>
                 <span class="text-lg">💼</span>
             </a>
-            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/5 transition-all text-xs font-medium group">
+            <a href="https://wa.me/5551994374526?text=Olá,%20preciso%20de%20suporte%20técnico" target="_blank" class="flex items-center justify-between p-3 rounded-xl surface hover-surface hover-line-accent border hairline transition-all text-xs font-medium group">
                 <div class="flex flex-col">
-                    <span class="text-slate-100 font-semibold group-hover:text-cyan-300">Suporte Técnico</span>
-                    <span class="text-[11px] text-slate-400">Atendimento a chamados</span>
+                    <span class="t-main font-semibold g-hover-accent">Suporte Técnico</span>
+                    <span class="text-[11px] t-muted">Atendimento a chamados</span>
                 </div>
                 <span class="text-lg">🛠️</span>
             </a>
         </div>
 
         <!-- WhatsApp Button -->
-        <button id="wa-toggle" aria-label="WhatsApp ZRS Informática" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110">
+        <button id="wa-toggle" aria-label="WhatsApp ZRS Informática" class="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
             <!-- Pulsing Aura -->
             <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30 pointer-events-none"></span>
             
