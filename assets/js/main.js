@@ -41,15 +41,14 @@ if (waToggle && waMenu) {
 const themeToggle = document.getElementById('theme-toggle');
 const currentTheme = localStorage.getItem('theme') || 'light';
 
+// Ícone (lua/sol) é trocado por CSS via [data-theme]; o JS só ajusta o estado.
 const applyTheme = (theme) => {
     if (theme === 'dark') {
         document.documentElement.classList.add('dark');
         document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeToggle) themeToggle.innerText = '☀️';
     } else {
         document.documentElement.classList.remove('dark');
         document.documentElement.setAttribute('data-theme', 'light');
-        if (themeToggle) themeToggle.innerText = '🌙';
     }
 };
 
