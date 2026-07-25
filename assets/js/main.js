@@ -30,19 +30,24 @@
                     });
                 }
             });
+        });
 
-            // Evita viúva: cola as duas últimas palavras (última linha nunca fica com 1 palavra).
-            // Procura a última fronteira de palavra (espaço com texto dos dois lados) entre os nós.
-            var last = null;
-            nos.forEach(function (tn) {
-                var s = tn.textContent;
-                for (var i = 1; i < s.length - 1; i++) {
-                    if (s[i] === ' ' && /\S/.test(s[i - 1]) && /\S/.test(s[i + 1])) last = { node: tn, i: i };
-                }
-            });
-            if (last) {
-                var s = last.node.textContent;
-                last.node.textContent = s.slice(0, last.i) + ' ' + s.slice(last.i + 1);
+        // Passe de seguranca: nenhum bloco colado pode ficar mais largo que a caixa.
+        // Se um elemento estourar, desfaz o nbsp do fim ate caber (evita corte de palavra).
+        function trocarUltimoNbsp(el) {
+            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+            var ns = [], nn;
+            while ((nn = walker.nextNode())) ns.push(nn);
+            for (var i = ns.length - 1; i >= 0; i--) {
+                var s = ns[i].textContent, idx = s.lastIndexOf(' ');
+                if (idx >= 0) { ns[i].textContent = s.slice(0, idx) + ' ' + s.slice(idx + 1); return true; }
+            }
+            return false;
+        }
+        alvos.forEach(function (el) {
+            var guarda = 0;
+            while (el.scrollWidth > el.clientWidth + 1 && guarda++ < 30) {
+                if (!trocarUltimoNbsp(el)) break;
             }
         });
     }
