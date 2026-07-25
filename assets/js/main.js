@@ -1,3 +1,58 @@
+// Anti palavra órfã: cola palavras curtas (a, o, e, os, de, da...) à palavra seguinte
+// com espaço inseparável, para nunca terminarem uma linha. Opera só em nós de texto,
+// preservando spans internos (ex.: destaque vermelho no título).
+(function () {
+    var curtas = new Set(['a', 'o', 'e', 'à', 'é', 'os', 'as', 'de', 'do', 'da', 'no', 'na', 'em', 'ao', 'ou', 'se', 'um']);
+    function colar(root) {
+        var alvos = root.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li');
+        alvos.forEach(function (el) {
+            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+            var nos = [], n;
+            while ((n = walker.nextNode())) nos.push(n);
+            nos.forEach(function (tn) {
+                var t = tn.textContent, prev = null;
+                // repete até estabilizar (cobre palavras curtas em sequência)
+                while (t !== prev) {
+                    prev = t;
+                    t = t.replace(/(^|\s)([A-Za-zÀ-ÿ]{1,2}) (?=\S)/g, function (m, pre, w) {
+                        return curtas.has(w.toLowerCase()) ? pre + w + ' ' : m;
+                    });
+                }
+                if (t !== tn.textContent) tn.textContent = t;
+            });
+
+            // Palavra curta logo antes de um <span> (destaque): cola através da fronteira de nó.
+            Array.prototype.forEach.call(el.childNodes, function (node) {
+                if (node.nodeType === 1 && node.previousSibling && node.previousSibling.nodeType === 3) {
+                    var pt = node.previousSibling;
+                    pt.textContent = pt.textContent.replace(/(^|\s)([A-Za-zÀ-ÿ]{1,2})\s+$/, function (m, pre, w) {
+                        return curtas.has(w.toLowerCase()) ? pre + w + ' ' : m;
+                    });
+                }
+            });
+
+            // Evita viúva: cola as duas últimas palavras (última linha nunca fica com 1 palavra).
+            // Procura a última fronteira de palavra (espaço com texto dos dois lados) entre os nós.
+            var last = null;
+            nos.forEach(function (tn) {
+                var s = tn.textContent;
+                for (var i = 1; i < s.length - 1; i++) {
+                    if (s[i] === ' ' && /\S/.test(s[i - 1]) && /\S/.test(s[i + 1])) last = { node: tn, i: i };
+                }
+            });
+            if (last) {
+                var s = last.node.textContent;
+                last.node.textContent = s.slice(0, last.i) + ' ' + s.slice(last.i + 1);
+            }
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { colar(document.body); });
+    } else {
+        colar(document.body);
+    }
+})();
+
 // Mobile Navigation Toggle
 const mobileToggle = document.getElementById('mobile-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -8,7 +63,7 @@ if (mobileToggle && mobileMenu) {
         mobileToggle.classList.toggle('active');
         mobileMenu.classList.toggle('hidden');
     });
-    
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
@@ -67,7 +122,7 @@ if (themeToggle) {
 // Counter Animation for Statistics
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter-number');
-    
+
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         const duration = 2000; // 2 seconds animation
@@ -77,7 +132,7 @@ const animateCounters = () => {
         const updateCount = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             // Easing function (easeOutQuad)
             const easeProgress = 1 - (1 - progress) * (1 - progress);
             const currentCount = Math.floor(easeProgress * (target - startValue) + startValue);
@@ -117,7 +172,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            
+
             // Trigger counter animation when stats section is visible
             if (entry.target.classList.contains('counter-section')) {
                 animateCounters();
